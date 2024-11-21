@@ -355,6 +355,31 @@ function main() {
   }
 
   // Funcție pentru a încărca culoarea în previzualizare și slidere
+ /* function loadPreviewColor() {
+    const targetClass = colorTarget.value; // Clasa selectată (magenta1 - magenta6)
+    const savedColor = localStorage.getItem(targetClass);
+
+    if (savedColor) {
+      // Extrage valorile RGB din culoarea salvată (formatul este rgb(r, g, b))
+      const rgbValues = savedColor.match(/\d+/g);
+      const [r, g, b] = rgbValues.map(Number);
+
+      // Setează valorile sliderelor
+      redSlider.value = r;
+      greenSlider.value = g;
+      blueSlider.value = b;
+
+      // Actualizează culoarea de previzualizare
+      colorPreview.style.backgroundColor = savedColor;
+    } else {
+      // Dacă nu există o culoare salvată, resetează sliderele la valori implicite
+      redSlider.value = 255;
+      greenSlider.value = 0;
+      blueSlider.value = 255;
+      colorPreview.style.backgroundColor = "rgb(255, 0, 255)"; // Culoare implicită
+    }
+  }*/
+
   function loadPreviewColor() {
     const targetClass = colorTarget.value; // Clasa selectată (magenta1 - magenta6)
     const savedColor = localStorage.getItem(targetClass);
@@ -407,24 +432,29 @@ function main() {
 
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
   function loadSavedColors() {
+    const myColors = [
+      [ 0, 184, 255 ],
+      [ 140, 228, 255 ],
+      [ 176, 255, 255 ],
+      [ 255, 255, 0 ],
+      [ 255, 185, 35 ],
+      [ 255, 125, 0]
+    ];
     for (let i = 1; i <= 6; i++) {
       const className = `magenta${i}`;
-      const savedColor = localStorage.getItem(className);
-      if (savedColor) {
+      const myColor = myColors[i - 1];
+        const savedColor = `rgb(${myColor[0]}, ${myColor[1]}, ${myColor[2]})`;
         document.querySelectorAll(`.${className}`).forEach((el) => {
           el.style.backgroundColor = savedColor;
         });
         document.querySelectorAll(`span .${className}`).forEach((el) => {
           el.style.backgroundColor = savedColor;
         });
-      }
     }
   }
 
   loadSavedColors();
-  loadPreviewColor();
   // Eveniment de click pentru salvarea culorii
-  saveButton.addEventListener("click", saveColor);
   // Obține elementele HTML
   let bakResponses;
 
