@@ -9,6 +9,7 @@
     :root {
       --font-size: 0.137in;
       --spacing: 0.069in;
+      --gspacing: 0.017in;
       --margin: 0.39in;
       --width: calc(100vw - 2 * var(--margin));
       --gap: 0.055in;
@@ -33,6 +34,10 @@
 
     .spacing {
       height: var(--spacing);
+    }
+
+    .gspacing {
+      height: var(--gspacing);
     }
 
     button {
@@ -81,7 +86,6 @@
     .clickable:hover,
     .clickable:focus {
       background-color: #f0f0f0;
-      outline: 2px solid #000;
       /* Adds an outline on focus */
     }
 
@@ -141,7 +145,7 @@
 
     .bar {
       cursor: pointer;
-      height: 12.5pt;
+      height: 0.151in;
       margin: 0;
       padding: 0;
     }
@@ -204,7 +208,6 @@
     }
 
     ul li:not(:last-child) {
-      margin-bottom: 1pt;
       flex-direction: column;
     }
 
