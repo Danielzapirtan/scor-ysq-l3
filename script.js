@@ -467,7 +467,7 @@ function main() {
           qanda1 += `<span class="magenta${response} quest"> ${questions[index]}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
-          qanda1 += `</div><div class="spacing" style="--spacing: 4pt;"></div>`;
+          qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
         }
       }
 
