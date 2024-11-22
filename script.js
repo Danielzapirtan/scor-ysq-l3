@@ -1,3 +1,14 @@
+if (navigator.userAgent.indexOf("Windows") !== -1) {
+  // Apply styles for Windows
+  document.body.classList.add("windows");
+} else if (navigator.userAgent.indexOf("Mac") !== -1) {
+  // Apply styles for macOS
+  document.body.classList.add("macos");
+} else if (navigator.userAgent.indexOf("Linux") !== -1) {
+  // Apply styles for Linux
+  document.body.classList.add("linux");
+}
+
 function main() {
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -337,98 +348,6 @@ function main() {
     [17, 35, 53, 71, 89, 107, 125, 143, 161, 176, 189, 198, 207, 216, 224, 228],
     [18, 36, 54, 72, 90, 108, 126, 144, 162, 177, 190, 199, 208, 217]
   ];
-  // Obține elementele HTML
-  const redSlider = document.getElementById("red-slider");
-  const greenSlider = document.getElementById("green-slider");
-  const blueSlider = document.getElementById("blue-slider");
-  const colorPreview = document.getElementById("color-preview");
-  const saveButton = document.getElementById("save-color");
-  const colorTarget = document.getElementById("color-target");
-
-  // Funcție pentru a actualiza culoarea de previzualizare
-  function updatePreviewColor() {
-    const r = redSlider.value;
-    const g = greenSlider.value;
-    const b = blueSlider.value;
-    const color = `rgb(${r}, ${g}, ${b})`;
-    colorPreview.style.backgroundColor = color;
-  }
-
-  // Funcție pentru a încărca culoarea în previzualizare și slidere
- /* function loadPreviewColor() {
-    const targetClass = colorTarget.value; // Clasa selectată (magenta1 - magenta6)
-    const savedColor = localStorage.getItem(targetClass);
-
-    if (savedColor) {
-      // Extrage valorile RGB din culoarea salvată (formatul este rgb(r, g, b))
-      const rgbValues = savedColor.match(/\d+/g);
-      const [r, g, b] = rgbValues.map(Number);
-
-      // Setează valorile sliderelor
-      redSlider.value = r;
-      greenSlider.value = g;
-      blueSlider.value = b;
-
-      // Actualizează culoarea de previzualizare
-      colorPreview.style.backgroundColor = savedColor;
-    } else {
-      // Dacă nu există o culoare salvată, resetează sliderele la valori implicite
-      redSlider.value = 255;
-      greenSlider.value = 0;
-      blueSlider.value = 255;
-      colorPreview.style.backgroundColor = "rgb(255, 0, 255)"; // Culoare implicită
-    }
-  }*/
-
-  function loadPreviewColor() {
-    const targetClass = colorTarget.value; // Clasa selectată (magenta1 - magenta6)
-    const savedColor = localStorage.getItem(targetClass);
-
-    if (savedColor) {
-      // Extrage valorile RGB din culoarea salvată (formatul este rgb(r, g, b))
-      const rgbValues = savedColor.match(/\d+/g);
-      const [r, g, b] = rgbValues.map(Number);
-
-      // Setează valorile sliderelor
-      redSlider.value = r;
-      greenSlider.value = g;
-      blueSlider.value = b;
-
-      // Actualizează culoarea de previzualizare
-      colorPreview.style.backgroundColor = savedColor;
-    } else {
-      // Dacă nu există o culoare salvată, resetează sliderele la valori implicite
-      redSlider.value = 255;
-      greenSlider.value = 0;
-      blueSlider.value = 255;
-      colorPreview.style.backgroundColor = "rgb(255, 0, 255)"; // Culoare implicită
-    }
-  }
-
-  // Adaugă eveniment pentru a încărca previzualizarea când selectezi o clasă diferită
-  colorTarget.addEventListener("change", loadPreviewColor);
-
-  // Actualizează previzualizarea la schimbarea sliderelor
-  redSlider.addEventListener("input", updatePreviewColor);
-  greenSlider.addEventListener("input", updatePreviewColor);
-  blueSlider.addEventListener("input", updatePreviewColor);
-
-  // Funcție pentru a salva culoarea selectată și a genera stil CSS pentru elementul selectat
-  function saveColor() {
-    const r = redSlider.value;
-    const g = greenSlider.value;
-    const b = blueSlider.value;
-    const color = `rgb(${r}, ${g}, ${b})`;
-    const targetClass = colorTarget.value;
-
-    // Salvează culoarea în localStorage cu cheia specifică
-    localStorage.setItem(targetClass, color);
-
-    // Aplică culoarea pe elementele corespunzătoare
-    document.querySelectorAll(`.${targetClass}`).forEach((el) => {
-      el.style.backgroundColor = color;
-    });
-  }
 
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
   function loadSavedColors() {

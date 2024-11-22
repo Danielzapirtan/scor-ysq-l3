@@ -6,14 +6,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @media (max-resolution: 1.4dppx) {
+    .windows {
       :root {
-        --font-size: 12pt;
+	--font-size: 10pt;
+      }
+    }
+
+    @media (min-width: 2001px) and (max-with: 3199px) {
+      :root {
+	 font-size: 24pt;
       }
     }
 
     :root {
-      font-size: var(--font-size, 10pt);
+      font-size: var(--font-size, 12pt);
       --spacing: 5pt;
       --margin: 28pt;
       --width: calc(100vw - 2 * var(--margin));
@@ -33,6 +39,7 @@
     }
 
     .aldine {
+      font-size: var(--font-size);
       font-weight: bold;
     }
 
@@ -235,31 +242,6 @@
     </div>
     <div class="spacing"></div>
   </header>
-  <main style="margin: 0; padding: 0;">
-    <div class="hidden">
-      <label>R: <input type="range" id="red-slider" min="0" max="255" value="255"></label>
-      <label>G: <input type="range" id="green-slider" min="0" max="255" value="0"></label>
-      <label>B: <input type="range" id="blue-slider" min="0" max="255" value="255"></label>
-      <div id="color-preview" style="width: 100px; height: 50px; background-color: rgb(255, 0, 255); margin-top: 10px;"></div>
-      <select id="color-target">
-        <option value="magenta1">Magenta 1</option>
-        <option value="magenta2">Magenta 2</option>
-        <option value="magenta3">Magenta 3</option>
-        <option value="magenta4">Magenta 4</option>
-        <option value="magenta5">Magenta 5</option>
-        <option value="magenta6">Magenta 6</option>
-      </select><br><br>
-      <button id="save-color">Salvează Culoare</button><br>
-    </div>
-    <div class="hidden">
-      <h3>Exemplu Elemente:</h3>
-      <span class="magenta1">Magenta 1</span>
-      <span class="magenta2">Magenta 2</span>
-      <span class="magenta3">Magenta 3</span>
-      <span class="magenta4">Magenta 4</span>
-      <span class="magenta5">Magenta 5</span>
-      <span class="magenta6">Magenta 6</span><br><br>
-    </div>
     <span id="clinician">
       <input type="file" id="csvFileInput" accept=".csv">
       <button id="processCSV">Procesează CSV</button>
