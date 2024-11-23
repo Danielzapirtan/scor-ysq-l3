@@ -111,7 +111,8 @@
       font-size: 1em;
       display: flex;
       flex-direction: row;
-      max-width: var(--width);
+      max-width: calc(var(--width) - 2 * var(--margin));
+      margin-left: var(--margin);
       text-align: left;
       text-align-last: left;
     }
