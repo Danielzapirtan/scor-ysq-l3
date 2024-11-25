@@ -456,7 +456,6 @@ function main() {
     for (iy = 0; iy < schemas.length; iy++) {
       let qanda = ``;
       let qanda1 = ``; // Reset qanda1 for each schema
-      if (iyz !== null && iy === iyz) qanda += `Listă itemi: <br>`;
       for (let ix = 0; ix < schemas[iy].length; ix++) {
         const index = schemas[iy][ix] - 1;
         const response = bakResponses[index];
