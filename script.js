@@ -9,26 +9,6 @@ if (navigator.userAgent.indexOf("Windows") !== -1) {
   document.body.classList.add("linux");
 }
 
-function getEndTextCoordinates(divId, regex) {
-  const div = document.getElementById(divId);
-  const span = document.createElement('span');
-  const text = div.textContent;
-  const match = text.match(regex);
-  span.textContent = match;
-  div.appendChild(span);
-  let rect = span.getBoundingClientRect();
-  let endX = rect.right;
-  let endY = rect.bottom;
-  div.removeChild(span);
-  span.textContent = ``;
-  div.appendChild(span);
-  rect = span.getBoundingClientRect();
-  const startX = rect.right;
-  const startY = rect.bottom;
-  div.removeChild(span);
-  return { endX - startX; }
-}
-
 function main() {
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -483,7 +463,7 @@ function main() {
         // Only display the selected question and answer if `iyz` matches `izz`
         if (iyz !== null && iy === iyz) {
           qanda1 += `<div class="qanda-container">`;
-          qanda1 += `<span id="quest3" class="indentq" style="--indent: getEndTextCoordinates('quest3', '^[0-9]\+\. ')" class="magenta${response} quest"> ${questions[index]}</span>
+          qanda1 += `<span class="magenta${response} quest"> ${questions[index]}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
