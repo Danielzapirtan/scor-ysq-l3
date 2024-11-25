@@ -352,23 +352,23 @@ function main() {
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
   function loadSavedColors() {
     const myColors = [
-      [ 0, 184, 255 ],
-      [ 140, 228, 255 ],
-      [ 176, 255, 255 ],
-      [ 255, 255, 0 ],
-      [ 255, 185, 35 ],
-      [ 255, 125, 0]
+      [0, 184, 255],
+      [140, 228, 255],
+      [176, 255, 255],
+      [255, 255, 0],
+      [255, 185, 35],
+      [255, 125, 0]
     ];
     for (let i = 1; i <= 6; i++) {
       const className = `magenta${i}`;
       const myColor = myColors[i - 1];
-        const savedColor = `rgb(${myColor[0]}, ${myColor[1]}, ${myColor[2]})`;
-        document.querySelectorAll(`.${className}`).forEach((el) => {
-          el.style.backgroundColor = savedColor;
-        });
-        document.querySelectorAll(`span .${className}`).forEach((el) => {
-          el.style.backgroundColor = savedColor;
-        });
+      const savedColor = `rgb(${myColor[0]}, ${myColor[1]}, ${myColor[2]})`;
+      document.querySelectorAll(`.${className}`).forEach((el) => {
+        el.style.backgroundColor = savedColor;
+      });
+      document.querySelectorAll(`span .${className}`).forEach((el) => {
+        el.style.backgroundColor = savedColor;
+      });
     }
   }
 
@@ -434,7 +434,38 @@ function main() {
     };
     reader.readAsText(input);
   });
+  // Assuming you have a data structure like this:
+  /* const schemas = [
+    {
+      questions: [
+        { text: "Short question" },
+        { text: "Longer question that needs more space" }
+      ]
+    }
+    // ... other schemas
+  ];*/
 
+  // Function to find the longest question in a schema
+  function findLongestQuestion(iy) {
+    let longestLength = 0;
+    for (let ix = 0; ix < schemas[iy].length; ix++) {
+      const index = schemas[iy][ix] - 1;
+      if (questions[index].length > longestLength) {
+        longestLength = questions[index].length;
+      }
+    }
+    return longestLength;
+  }
+
+  // Iterate through each schema and set the container size
+  /*  schemas.forEach((schema) => {
+    const longestLength = findLongestQuestion(schema);
+    // Assuming you have a container element with the class 'question-container'
+    const containers = document.querySelectorAll(".question-container");
+    containers.forEach((container) => {
+      container.style.maxWidth = longestLength + "px"; // Adjust as needed
+    });
+  });*/
   function displayScores(firstname, lastname, scores) {
     document.getElementById("clinician").classList.add("hidden");
     const list = document.getElementById("schemaScores");
@@ -464,13 +495,20 @@ function main() {
         if (iyz !== null && iy === iyz) {
           const quest00 = questions[index].match("[ ].*$")[0].slice(1);
           qanda1 += `<div class="qanda-container">`;
-          qanda1 += `<span class="magenta${response} quenr">${index + 1}. </span>`;
-          qanda1 += `<span class="magenta${response} quest"> ${quest00}</span>
+          qanda1 += `<span class="magenta${response} quenr">${
+            index + 1
+          }. </span>`;
+          const longestLength = findLongestQuestion(iy);
+          const scale = 0.06;
+          qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength * scale}in"> ${quest00}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
         }
       }
+      /*document.querySelectorAll(".quest").forEach((el) => {
+        el.style.maxWidth = String(longestLength * 0.068) + "in";
+      });*/
 
       const li = document.createElement("li");
       const thresholdWidth = schemas[iy].length * 3.5;
@@ -484,11 +522,15 @@ function main() {
   </div>
   <div class="bar-container">
     <div class="bar-wrapper">
-      <div class="bar bar1 clickable" style="width: ${scores[iy] * 4}px">&nbsp;</div>
+      <div class="bar bar1 clickable" style="width: ${
+        scores[iy] * 4
+      }px">&nbsp;</div>
       <div class="number">${scores[iy]}</div>
     </div>
     <div class="bar-wrapper">
-      <div class="bar bar2 clickable" style="width: ${thresholdWidth * 4}px"></div>
+      <div class="bar bar2 clickable" style="width: ${
+        thresholdWidth * 4
+      }px"></div>
       <div class="number">${Math.floor(schemas[iy].length * 3.5)}</div>
     </div>
   </div>
