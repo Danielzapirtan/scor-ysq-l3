@@ -125,10 +125,12 @@
     
     .quest {
       display: inline-block;
-      min-width: calc(var(--width) - var(--gap) - var(--ans));
-      text-indent: -0.24in;
-      margin-left: -0.24in;
-      padding-left: 0.24in;
+      min-width: calc(var(--width) - var(--gap) - var(--ans) - var(--quenr));
+ /*     --indent0: calc(- var(--indentq));
+      --indent1: var(--indentq);
+      text-indent: var(--indent0);
+      margin-left: var(--indent0);
+      padding-left: var(--indent1);*/
     }
 
     .gap {
