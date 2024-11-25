@@ -9,6 +9,25 @@ if (navigator.userAgent.indexOf("Windows") !== -1) {
   document.body.classList.add("linux");
 }
 
+function getEndTextCoordinates(divId) {
+  const div = document.getElementById(divId);
+  const span = document.createElement('span');
+  span.textContent = div.textContent;
+  div.appendChild(span);
+
+  const rect = span.getBoundingClientRect();
+  const endX = rect.right;
+  const endY = rect.bottom;
+
+  div.removeChild(span);
+
+  return { x: endX, y: endY };
+}
+
+// Usage:
+const coordinates = getEndTextCoordinates('myDiv');
+console.log(coordinates); // Output: { x: 200, y: 300 } (example values)
+
 function main() {
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
