@@ -1,4 +1,4 @@
-if (navigator.userAgent.indexOf("Windows") !== -1) {
+/*if (navigator.userAgent.indexOf("Windows") !== -1) {
   // Apply styles for Windows
   document.body.classList.add("windows");
 } else if (navigator.userAgent.indexOf("Mac") !== -1) {
@@ -7,9 +7,17 @@ if (navigator.userAgent.indexOf("Windows") !== -1) {
 } else if (navigator.userAgent.indexOf("Linux") !== -1) {
   // Apply styles for Linux
   document.body.classList.add("linux");
-}
+}*/
+
+
 
 function main() {
+  const scales = [
+    0.0565, 0.0565, 0.059, 0.054, 0.0595,
+    0.0565, 0.056, 0.0545, 0.057, 0.056,
+    0.059, 0.057, 0.0565, 0.0565, 0.06,
+    0.055, 0.0565, 0.0585
+    ];
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
     "2. Simt că oamenii vor profita de mine. ",
@@ -434,16 +442,6 @@ function main() {
     };
     reader.readAsText(input);
   });
-  // Assuming you have a data structure like this:
-  /* const schemas = [
-    {
-      questions: [
-        { text: "Short question" },
-        { text: "Longer question that needs more space" }
-      ]
-    }
-    // ... other schemas
-  ];*/
 
   // Function to find the longest question in a schema
   function findLongestQuestion(iy) {
@@ -487,10 +485,11 @@ function main() {
     for (iy = 0; iy < schemas.length; iy++) {
       let qanda = ``;
       let qanda1 = ``; // Reset qanda1 for each schema
+      const longestLength = findLongestQuestion(iy);
       for (let ix = 0; ix < schemas[iy].length; ix++) {
         const index = schemas[iy][ix] - 1;
         const response = bakResponses[index];
-
+   
         // Only display the selected question and answer if `iyz` matches `izz`
         if (iyz !== null && iy === iyz) {
           const quest00 = questions[index].match("[ ].*$")[0].slice(1);
@@ -498,16 +497,16 @@ function main() {
           qanda1 += `<span class="magenta${response} quenr">${
             index + 1
           }. </span>`;
-          const longestLength = findLongestQuestion(iy);
-          const scale = 0.06;
+          const scale = scales[iy];
           qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength * scale}in"> ${quest00}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
         }
       }
-      /*document.querySelectorAll(".quest").forEach((el) => {
-        el.style.maxWidth = String(longestLength * 0.068) + "in";
+ /*     document.querySelectorAll(".quest").forEach((el) => {
+        const maxW = longestLength * 0.068;
+        el.style.maxWidth = maxW + "in";
       });*/
 
       const li = document.createElement("li");
