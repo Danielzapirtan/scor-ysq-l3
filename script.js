@@ -462,8 +462,10 @@ function main() {
 
         // Only display the selected question and answer if `iyz` matches `izz`
         if (iyz !== null && iy === iyz) {
+          const quest00 = questions[index].match("[ ].*$")[0].slice(1);
           qanda1 += `<div class="qanda-container">`;
-          qanda1 += `<span class="magenta${response} quest"> ${questions[index]}</span>
+          qanda1 += `<span class="magenta${response} quenr">${index + 1}. </span>`;
+          qanda1 += `<span class="magenta${response} quest"> ${quest00}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
