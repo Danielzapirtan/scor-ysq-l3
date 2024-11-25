@@ -9,24 +9,25 @@ if (navigator.userAgent.indexOf("Windows") !== -1) {
   document.body.classList.add("linux");
 }
 
-function getEndTextCoordinates(divId) {
+function getEndTextCoordinates(divId, regex) {
   const div = document.getElementById(divId);
   const span = document.createElement('span');
-  span.textContent = div.textContent;
+  const text = div.textContent;
+  const match = text.match(regex);
+  span.textContent = match;
   div.appendChild(span);
-
-  const rect = span.getBoundingClientRect();
-  const endX = rect.right;
-  const endY = rect.bottom;
-
+  let rect = span.getBoundingClientRect();
+  let endX = rect.right;
+  let endY = rect.bottom;
   div.removeChild(span);
-
-  return { x: endX, y: endY };
+  span.textContent = ``;
+  div.appendChild(span);
+  rect = span.getBoundingClientRect();
+  const startX = rect.right;
+  const startY = rect.bottom;
+  div.removeChild(span);
+  return { endX - startX; }
 }
-
-// Usage:
-const coordinates = getEndTextCoordinates('myDiv');
-console.log(coordinates); // Output: { x: 200, y: 300 } (example values)
 
 function main() {
   const questions = [
@@ -482,7 +483,7 @@ function main() {
         // Only display the selected question and answer if `iyz` matches `izz`
         if (iyz !== null && iy === iyz) {
           qanda1 += `<div class="qanda-container">`;
-          qanda1 += `<span class="magenta${response} quest"> ${questions[index]}</span>
+          qanda1 += `<span id="quest3" class="indentq" style="--indent: getEndTextCoordinates('quest3', '^[0-9]\+\. ')" class="magenta${response} quest"> ${questions[index]}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
