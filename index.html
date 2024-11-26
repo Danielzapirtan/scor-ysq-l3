@@ -122,15 +122,17 @@
       display: inline-block;
       min-width: var(--quenr);
     }
-    
+
     .quest {
       display: inline-block;
-      /*min-width: calc(var(--width) - var(--gap) - var(--ans) - var(--quenr));
-      --indent0: calc(- var(--indentq));
-      --indent1: var(--indentq);
-      text-indent: var(--indent0);
-      margin-left: var(--indent0);
-      padding-left: var(--indent1);*/
+    }
+
+    #text-measure {
+      font-family: Arial;
+      font-size: 0.137in;
+      visibility: hidden;
+      position: absolute;
+      white-space: nowrap;
     }
 
     .gap {
@@ -246,11 +248,12 @@
     </div>
     <div class="spacing"></div>
   </header>
-    <main>
+  <main>
     <span id="clinician">
       <input type="file" id="csvFileInput" accept=".csv">
       <button id="processCSV">Procesează CSV</button>
     </span>
+    <div id="text-measure"></div>
     <ul style="margin: 0; padding: 0;" id="schemaScores"></ul>
   </main>
   <footer>
