@@ -498,7 +498,7 @@ function main() {
             index + 1
           }. </span>`;
           const scale = scales[iy];
-          qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength * scale * 1.001}in"> ${quest00}</span>
+          qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength * scale * 1.002}in"> ${quest00}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
