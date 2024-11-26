@@ -451,9 +451,11 @@ function main() {
       if (questions[index].length > longestLength) {
 
         const question = questions[index];
+        const quenr = question.match("^[0-9]\+[ ]*")[0];
+        const quest00 = question.slice(quenr.length);
 
         const textMeasure = document.getElementById('text-measure');
-        textMeasure.innerText = question;
+        textMeasure.innerText = quest00;
         width = textMeasure.offsetWidth;
         
         longestLength = questions[index].length;
