@@ -445,13 +445,21 @@ function main() {
   // Function to find the longest question in a schema
   function findLongestQuestion(iy) {
     let longestLength = 0;
+    let width = 0;
     for (let ix = 0; ix < schemas[iy].length; ix++) {
       const index = schemas[iy][ix] - 1;
       if (questions[index].length > longestLength) {
+
+        const question = questions[index];
+
+        const textMeasure = document.getElementById('text-measure');
+        textMeasure.innerText = question;
+        width = textMeasure.offsetWidth;
+        
         longestLength = questions[index].length;
       }
     }
-    return longestLength;
+    return width;
   }
 
   // Iterate through each schema and set the container size
@@ -497,7 +505,7 @@ function main() {
             index + 1
           }. </span>`;
           const scale = scales[iy];
-          qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength * scale * extrascale}in"> ${quest00}</span>
+          qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength}px"> ${quest00}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
