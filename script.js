@@ -9,15 +9,14 @@
   document.body.classList.add("linux");
 }*/
 
-
-
 function main() {
   const scales = [
-    0.0565, 0.0565, 0.059, 0.054, 0.0595,
+    0.0565, 0.0565, 0.0605, 0.054, 0.0595,
     0.0565, 0.056, 0.0545, 0.057, 0.056,
     0.059, 0.057, 0.0565, 0.0565, 0.06,
     0.055, 0.0565, 0.0585
     ];
+  const extrascale = 1.0;
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
     "2. Simt că oamenii vor profita de mine. ",
@@ -498,7 +497,7 @@ function main() {
             index + 1
           }. </span>`;
           const scale = scales[iy];
-          qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength * scale * 1.01}in"> ${quest00}</span>
+          qanda1 += `<span class="magenta${response} quest" style="min-width: ${longestLength * scale * extrascale}in"> ${quest00}</span>
           <span class="gap"></span>
           <span class="magenta${response} ans">R: ${response}</span>`;
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
