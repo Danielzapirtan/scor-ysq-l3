@@ -11,11 +11,25 @@
 
 function main() {
   const scales = [
-    0.0565, 0.0565, 0.0605, 0.054, 0.0595,
-    0.0565, 0.056, 0.0545, 0.057, 0.056,
-    0.059, 0.057, 0.0565, 0.0565, 0.06,
-    0.055, 0.0565, 0.0585
-    ];
+    0.0565,
+    0.0565,
+    0.0605,
+    0.054,
+    0.0595,
+    0.0565,
+    0.056,
+    0.0545,
+    0.057,
+    0.056,
+    0.059,
+    0.057,
+    0.0565,
+    0.0565,
+    0.06,
+    0.055,
+    0.0565,
+    0.0585
+  ];
   const extrascale = 1.0;
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -444,22 +458,16 @@ function main() {
 
   // Function to find the longest question in a schema
   function findLongestQuestion(iy) {
-    let longestLength = 0;
     let width = 0;
     for (let ix = 0; ix < schemas[iy].length; ix++) {
       const index = schemas[iy][ix] - 1;
-      if (questions[index].length > longestLength) {
+      const question = questions[index];
+      const quenr = question.match("^[0-9]+[ ]*")[0];
+      const quest00 = question.slice(quenr.length);
 
-        const question = questions[index];
-        const quenr = question.match("^[0-9]\+[ ]*")[0];
-        const quest00 = question.slice(quenr.length);
-
-        const textMeasure = document.getElementById('text-measure');
-        textMeasure.innerText = quest00;
-        width = textMeasure.offsetWidth;
-        
-        longestLength = questions[index].length;
-      }
+      const textMeasure = document.getElementById("text-measure");
+      textMeasure.innerText = quest00;
+      if (textMeasure.offsetWidth > width) width = textMeasure.offsetWidth;
     }
     return width;
   }
@@ -498,7 +506,7 @@ function main() {
       for (let ix = 0; ix < schemas[iy].length; ix++) {
         const index = schemas[iy][ix] - 1;
         const response = bakResponses[index];
-   
+
         // Only display the selected question and answer if `iyz` matches `izz`
         if (iyz !== null && iy === iyz) {
           const quest00 = questions[index].match("[ ].*$")[0].slice(1);
@@ -513,7 +521,7 @@ function main() {
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
         }
       }
- /*     document.querySelectorAll(".quest").forEach((el) => {
+      /*     document.querySelectorAll(".quest").forEach((el) => {
         const maxW = longestLength * 0.068;
         el.style.maxWidth = maxW + "in";
       });*/
