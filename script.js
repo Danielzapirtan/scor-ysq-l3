@@ -569,7 +569,10 @@ function main() {
         // Toggle `iyz` based on the clicked question
         iyz = index !== iyz ? index : null;
         displayDetails(index, scores[index]);
-      });
+        document.querySelectorAll('.qanda-container').forEach(element => {
+          element.classList.remove('qanda-selected1');
+        });
+     });
     });
     const qs3 = Array.from(document.querySelectorAll(".bar"));
     qs3.forEach((q, index) => {
