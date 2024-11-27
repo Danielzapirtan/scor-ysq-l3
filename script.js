@@ -503,6 +503,7 @@ function main() {
       let qanda = ``;
       let qanda1 = ``; // Reset qanda1 for each schema
       const longestLength = findLongestQuestion(iy);
+      const ixmed = Math.floor(schemas[iy].length / 2);
       for (let ix = 0; ix < schemas[iy].length; ix++) {
         const index = schemas[iy][ix] - 1;
         const response = bakResponses[index];
@@ -510,7 +511,8 @@ function main() {
         // Only display the selected question and answer if `iyz` matches `izz`
         if (iyz !== null && iy === iyz) {
           const quest00 = questions[index].match("[ ].*$")[0].slice(1);
-          qanda1 += `<div class="qanda-container">`;
+          const selected = ix === ixmed ? 1 : 0;
+          qanda1 += `<div class="qanda-container qanda-selected${selected}">`;
           qanda1 += `<span class="magenta${response} quenr">${
             index + 1
           }. </span>`;
@@ -521,11 +523,6 @@ function main() {
           qanda1 += `</div><div class="spacing" style="--spacing: 1pt;"></div>`;
         }
       }
-      /*     document.querySelectorAll(".quest").forEach((el) => {
-        const maxW = longestLength * 0.068;
-        el.style.maxWidth = maxW + "in";
-      });*/
-
       const li = document.createElement("li");
       const thresholdWidth = schemas[iy].length * 3.5;
       li.innerHTML = `
@@ -582,6 +579,25 @@ function main() {
         index = Math.floor(index / 2);
         displayInterpretation(index, scores[index]);
       });
+    });
+    function centerElement(element) {
+      const elementRect = element.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const elementHeight = elementRect.height;
+      const targetY =
+        elementRect.top + window.scrollY - (viewportHeight - elementHeight) / 2;
+
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth"
+      });
+    }
+
+    const scrollY = list.offsetTop;
+    if (iyz === null) window.scrollTo({top: scrollY, behaviour: "smooth"});
+    const qandaSelected = document.querySelectorAll(".qanda-selected1");
+    qandaSelected.forEach((q, index) => {
+      centerElement(q);
     });
   }
 
