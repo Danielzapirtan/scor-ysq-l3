@@ -555,11 +555,11 @@ function main() {
 <div class="spacing"></div>
 <div class="spacing"></div>
 <div class="header-record">
-    <span class="blk th1">Schema cognitivă</span>
+    <span class="blk aldine th1">Schemele cognitive clasate pe domenii</span>
     <span class="gap"></span>
-    <span class="blk th2">Itemi</span>
+    <span class="blk aldine th2">Itemi</span>
     <span class="gap2"></span>
-    <span class="blk th3">Analiza scorului</span>
+    <span class="blk aldine th3">Analiza scorului</span>
 </div>`;
     for (iy = 0; iy < schemas.length; iy++) {
       let qanda = ``;
@@ -595,7 +595,7 @@ function main() {
         }
       }
       li.innerHTML = `
-<div class="domain${iy1} clickable">${domain}</div><div class="container">
+<div class="domain domain${iy1} clickable">${domain}</div><div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
     <button class="schema-click clickable">Nr:&nbsp;${
