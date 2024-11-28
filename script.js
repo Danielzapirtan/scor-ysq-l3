@@ -389,6 +389,38 @@ function main() {
   ];
 
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
+  function arabicToRoman(num) {
+    if (num < 1 || num > 3999) {
+      return "Invalid Roman numeral";
+    }
+
+    const romanNumerals = {
+      M: 1000,
+      CM: 900,
+      D: 500,
+      CD: 400,
+      C: 100,
+      XC: 90,
+      L: 50,
+      XL: 40,
+      X: 10,
+      IX: 9,
+      V: 5,
+      IV: 4,
+      I: 1
+    };
+
+    let roman = "";
+    for (let key in romanNumerals) {
+      while (num >= romanNumerals[key]) {
+        roman += key;
+        num -= romanNumerals[key];
+      }
+    }
+
+    return roman;
+  }
+
   function loadSavedColors() {
     const myColors = [
       [0, 184, 255],
@@ -500,7 +532,8 @@ function main() {
     });
   });*/
   function displayMoreInfo(index) {
-    alert(`Domeniul ${index + 1} : Detaliere indisponibilă`);
+    const realIndex = parseInt(index + 1);
+    alert(`Domeniul ${arabicToRoman(realIndex)} : Detaliere indisponibilă`);
   }
 
   function displayDetails(index, score) {
@@ -598,23 +631,14 @@ function main() {
       "domain4",
       "domain5"
     ];
- 
+
     domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
       const doms = Array.from(document.querySelectorAll(selector));
-
       doms[0].addEventListener("click", function (event) {
-          displayMoreInfo(index);
+        displayMoreInfo(index);
       });
     });
-    /*domainClasses.forEach((domainItem, index) => {
-      const doms = Array.from(document.querySelectorAll(".${domainItem}"));
-      doms.forEach((domain37) => {
-        domain37.addEventListener("click", function (event) {
-          displayMoreInfo(index + 1);
-        });
-      });
-    });*/
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
