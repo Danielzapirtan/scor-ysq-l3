@@ -9,16 +9,17 @@
     :root {
       --font-size: 3.55mm;
       --spacing: 0.175mm;
-      --gspacing: 0.43mm;
-      --margin: 9.7mm;
+      --gspacing: 0;
+      --margin: 10mm;
       --margin2: 0;
       --width: calc(100vw - 4 * var(--margin));
       --gap: 0.137mm;
       --gap2: 5.05mm;
       --ans: 7.5mm;
+      --hearder: 2mm;
       --schema: 116mm;
       --quenr: 6.4mm;
-      --adjust: 4.05mm;
+      --adjust: 0mm;
       --schema1: calc(var(--schema) - var(--adjust));
       --nr: 18.5mm;
       --bare: 78mm;
@@ -34,7 +35,6 @@
     .domain {
       width: var(--schema1);
       border-radius: 3mm;
-      padding: 1mm 2mm;
       font-size: 1.1em;
       font-weight: bold;
     }
@@ -195,7 +195,7 @@
 
     .bar {
       cursor: pointer;
-      height: 0.151in;
+      height: 3.8mm;
       margin: 0;
       padding: 0;
     }
@@ -209,7 +209,7 @@
     }
 
     .number {
-      margin-left: 10px;
+      margin-left: 3.3mm;
     }
 
     .header-record {
@@ -222,6 +222,8 @@
       background-color: #fb5;
       text-align: center;
       margin-right: 0;
+      border: var(--hearder) black;
+      border-radius: 2.75mm;
       font-size: 1.2rem;
     }
 
@@ -231,6 +233,8 @@
       background-color: #fb5;
       text-align: center;
       margin-right: 0;
+      border: var(--hearder) black;
+      border-radius: 2.75mm;
       font-size: 1.2rem;
     }
 
@@ -239,6 +243,8 @@
       background-color: #fb5;
       text-align: center;
       margin-right: 0;
+      border: var(--hearder) black;
+      border-radius: 2.75mm;
       font-size: 1.2rem;
     }
 
@@ -252,7 +258,7 @@
       width: var(--nr);
       font-family: Arial, sans-serif;
       text-align: left;
-      margin-right: 0pt;
+      margin-right: 0;
     }
 
     ul {
@@ -264,12 +270,12 @@
       flex-direction: column;
     }
 
-    .schema-color {
+    /*.schema-color {
       padding: 10px;
       margin: 5px 0;
       color: white;
       font-weight: bold;
-    }
+    }*/
 
     .hidden {
       display: none;
