@@ -11,11 +11,11 @@ function main() {
 }*/
 
   const domainNames = [
-    "1. Separare și Respingere",
-    "2. Autonomie și Performanță deficitare",
-    "3. Limite deficitare",
-    "4. Dependență de alții sau Orientare către ceilalți",
-    "5. Hipervigilență și Inhibiție"
+    "I. Separare și Respingere",
+    "II. Autonomie și Performanță deficitare",
+    "III. Limite deficitare",
+    "IV. Dependență de alții sau Orientare către ceilalți",
+    "V. Hipervigilență și Inhibiție"
   ];
 
   const domains = [
@@ -499,6 +499,17 @@ function main() {
       container.style.maxWidth = longestLength + "px"; // Adjust as needed
     });
   });*/
+  function displayMoreInfo(index) {
+    alert(`Domeniul ${index + 1} : Detaliere indisponibilă`);
+  }
+
+  function displayDetails(index, score) {
+    alert(`Schema: ${index + 1} Scor: ${score}: Detaliere indisponibilă`);
+  }
+
+  function displayInterpretation(index, score) {
+    alert(`Schema: ${index + 1} Scor: ${score}: Interpretare indisponibilă`);
+  }
   function displayScores(firstname, lastname, scores) {
     document.getElementById("clinician").classList.add("hidden");
     const list = document.getElementById("schemaScores");
@@ -547,11 +558,11 @@ function main() {
       for (let dx = 0; dx < domains.length; dx++) {
         if (iy === domains[dx][0] - 1) {
           domain += `${domainNames[dx]}`;
-          iy1 = dx;
+          iy1 = dx + 1;
         }
       }
       li.innerHTML = `
-<div class="domain${iy1}">${domain}</div><div class="container">
+<div class="domain${iy1} clickable">${domain}</div><div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
     <button class="schema-click clickable">Nr:&nbsp;${
@@ -580,6 +591,15 @@ function main() {
     loadSavedColors();
 
     // Add click event listeners to each question number
+    /*const domainClasses = [ "domain1", "domain2", "domain3", "domain4", "domain5" ];
+    domainClasses.forEach((domainItem, index) => {
+      const doms = Array.from(document.querySelectorAll(".${domainItem}"));
+      doms.forEach((domain37) => {
+        domain37.addEventListener("click", function (event) {
+          displayMoreInfo(index);
+        });
+      });
+    });*/
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
@@ -627,14 +647,6 @@ function main() {
     qandaSelected.forEach((q, index) => {
       centerElement(q);
     });
-  }
-
-  function displayDetails(index, score) {
-    alert(`Schema: ${index + 1} Scor: ${score}: Detaliere indisponibilă`);
-  }
-
-  function displayInterpretation(index, score) {
-    alert(`Schema: ${index + 1} Scor: ${score}: Interpretare indisponibilă`);
   }
 }
 
