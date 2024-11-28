@@ -1,4 +1,5 @@
-/*if (navigator.userAgent.indexOf("Windows") !== -1) {
+function main() {
+  /*if (navigator.userAgent.indexOf("Windows") !== -1) {
   // Apply styles for Windows
   document.body.classList.add("windows");
 } else if (navigator.userAgent.indexOf("Mac") !== -1) {
@@ -9,8 +10,23 @@
   document.body.classList.add("linux");
 }*/
 
-function main() {
-  const scales = [
+  const domainNames = [
+    "1. Separare și Respingere",
+    "2. Autonomie și Performanță deficitare",
+    "3. Limite deficitare",
+    "4. Dependență de alții sau Orientare către ceilalți",
+    "5. Hipervigilență și Inhibiție"
+  ];
+
+  const domains = [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9],
+    [10, 11],
+    [12, 13, 14],
+    [15, 16, 17, 18]
+  ];
+
+  /*const scales = [
     0.0565,
     0.0565,
     0.0605,
@@ -30,7 +46,9 @@ function main() {
     0.0565,
     0.0585
   ];
-  const extrascale = 1.0;
+  
+  const extrascale = 1.0;*/
+
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
     "2. Simt că oamenii vor profita de mine. ",
@@ -525,8 +543,16 @@ function main() {
       }
       const li = document.createElement("li");
       const thresholdWidth = schemas[iy].length * 3.5;
+      let domain = ``;
+      let iy1;
+      for (let dx = 0; dx < domains.length; dx++) {
+        if (iy === domains[dx][0] - 1) {
+          domain += `${domainNames[dx]}`;
+          iy1 = dx;
+        }
+      }
       li.innerHTML = `
-<div class="container">
+<div class="domain${iy1}">${domain}</div><div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
     <button class="schema-click clickable">Nr:&nbsp;${
@@ -569,10 +595,10 @@ function main() {
         // Toggle `iyz` based on the clicked question
         iyz = index !== iyz ? index : null;
         displayDetails(index, scores[index]);
-        document.querySelectorAll('.qanda-container').forEach(element => {
-          element.classList.remove('qanda-selected1');
+        document.querySelectorAll(".qanda-container").forEach((element) => {
+          element.classList.remove("qanda-selected1");
         });
-     });
+      });
     });
     const qs3 = Array.from(document.querySelectorAll(".bar"));
     qs3.forEach((q, index) => {
@@ -597,7 +623,7 @@ function main() {
     }
 
     const scrollY = list.offsetTop;
-    if (iyz === null) window.scrollTo({top: scrollY, behaviour: "smooth"});
+    if (iyz === null) window.scrollTo({ top: scrollY, behaviour: "smooth" });
     const qandaSelected = document.querySelectorAll(".qanda-selected1");
     qandaSelected.forEach((q, index) => {
       centerElement(q);
