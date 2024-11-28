@@ -11,6 +11,7 @@
       --spacing: 0.069in;
       --gspacing: 0.017in;
       --margin: 0.39in;
+      --margin2: 0;
       --width: calc(100vw - 4 * var(--margin));
       --gap: 0.055in;
       --gap2: 0.195in;
@@ -22,7 +23,7 @@
     }
 
     body {
-      font-family: Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       font-size: var(--font-size);
       margin-left: var(--margin);
       margin-right: var(--margin);
@@ -42,13 +43,13 @@
     }
 
     button {
-      font-family: Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #22eeff;
       text-align: left;
       /* Albastru plăcut */
       color: #000;
       /* Text alb */
-      padding: 4pt 10pt;
+      padding: 4pt 0;
       /* Spațiere confortabilă */
       font-size: 1em;
       /* Text lizibil */
@@ -110,11 +111,11 @@
 
     .qanda-container {
       font-size: var(--font-size);
-      font-family: Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: row;
       max-width: calc(var(--width) - 2 * var(--margin));
-      margin-left: var(--margin);
+      margin-left: var(--margin2);
       text-align: left;
       text-align-last: left;
     }
@@ -129,7 +130,7 @@
     }
 
     #text-measure {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       font-size: 0.137in;
       visibility: hidden;
       position: absolute;
@@ -191,7 +192,7 @@
 
     .th2 {
       width: var(--nr);
-      font-family: Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #fb5;
       text-align: center;
       margin-right: 0;
