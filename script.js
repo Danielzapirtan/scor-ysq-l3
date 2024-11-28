@@ -611,7 +611,7 @@ function main() {
       const doms = Array.from(document.querySelectorAll(".${domainItem}"));
       doms.forEach((domain37) => {
         domain37.addEventListener("click", function (event) {
-          displayMoreInfo(index);
+          displayMoreInfo(index + 1);
         });
       });
     });*/
