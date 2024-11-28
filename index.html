@@ -7,19 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --font-size: 0.137in;
-      --spacing: 0.069in;
-      --gspacing: 0.017in;
-      --margin: 0.39in;
+      --font-size: 3.55mm;
+      --spacing: 0.175mm;
+      --gspacing: 0.43mm;
+      --margin: 9.7mm;
       --margin2: 0;
       --width: calc(100vw - 4 * var(--margin));
-      --gap: 0.055in;
-      --gap2: 0.195in;
-      --ans: 0.3in;
-      --schema: 4in;
-      --nr: 0.74in;
-      --bare: 3.1in;
-      --quenr: 0.26in;
+      --gap: 0.137mm;
+      --gap2: 5.05mm;
+      --ans: 7.5mm;
+      --schema: 116mm;
+      --quenr: 6.4mm;
+      --adjust: 4.05mm;
+      --schema1: calc(var(--schema) - var(--adjust));
+      --nr: 18.5mm;
+      --bare: 78mm;
     }
 
     body {
@@ -29,38 +31,31 @@
       margin-right: var(--margin);
     }
   
-    .domain1 {
-      width: var(--schema);
-      border-radius: 8px;
+    .domain {
+      width: var(--schema1);
+      border-radius: 3mm;
       padding: 1mm 2mm;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    
+    .domain1 {
       background-color: #BFBFBF;
     }
     
     .domain2 {
-      width: var(--schema);
-      border-radius: 8px;
-      padding: 1mm 2mm;
       background-color: #8DD873;
     }
     
     .domain3 {
-      width: var(--schema);
-      border-radius: 8px;
-      padding: 1mm 2mm;
       background-color: #D86DCB;
     }
     
     .domain4 {
-      width: var(--schema);
-      border-radius: 8px;
-      padding: 1mm 2mm;
       background-color: #F1A983;
     }
     
     .domain5 {
-      width: var(--schema);
-      border-radius: 8px;
-      padding: 1mm 2mm;
       background-color: #4C94D8;
     }
 
@@ -84,7 +79,7 @@
       /* Albastru plăcut */
       color: #000;
       /* Text alb */
-      padding: 1mm 2mm;
+      padding: 2mm 4mm;
       /* Spațiere confortabilă */
       font-size: 1em;
       /* Text lizibil */
@@ -227,6 +222,7 @@
       background-color: #fb5;
       text-align: center;
       margin-right: 0;
+      font-size: 1.2rem;
     }
 
     .th2 {
@@ -235,6 +231,7 @@
       background-color: #fb5;
       text-align: center;
       margin-right: 0;
+      font-size: 1.2rem;
     }
 
     .th3 {
@@ -242,17 +239,18 @@
       background-color: #fb5;
       text-align: center;
       margin-right: 0;
+      font-size: 1.2rem;
     }
 
     .li-click {
       width: var(--schema);
       text-align: left;
-      margin-right: 0pt;
+      margin-right: 0;
     }
 
     .schema-click {
       width: var(--nr);
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align: left;
       margin-right: 0pt;
     }
