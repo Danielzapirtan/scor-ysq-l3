@@ -591,8 +591,23 @@ function main() {
     loadSavedColors();
 
     // Add click event listeners to each question number
-    /*const domainClasses = [ "domain1", "domain2", "domain3", "domain4", "domain5" ];
+    const domainClasses = [
+      "domain1",
+      "domain2",
+      "domain3",
+      "domain4",
+      "domain5"
+    ];
+ 
     domainClasses.forEach((domainItem, index) => {
+      const selector = "." + domainItem; // Concatenate the dot and the domainItem
+      const doms = Array.from(document.querySelectorAll(selector));
+
+      doms[0].addEventListener("click", function (event) {
+          displayMoreInfo(index);
+      });
+    });
+    /*domainClasses.forEach((domainItem, index) => {
       const doms = Array.from(document.querySelectorAll(".${domainItem}"));
       doms.forEach((domain37) => {
         domain37.addEventListener("click", function (event) {
