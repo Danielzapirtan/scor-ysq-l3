@@ -10,9 +10,8 @@
       --ans: 7.5mm;
       --hearder: 2mm;
       --schema: 116mm;
+      --schema1: calc(var(--schema) - 4mm);
       --quenr: 6.4mm;
-      --adjust: 0mm;
-      --schema1: calc(var(--schema) - var(--adjust));
       --nr: 18.5mm;
       --bare: 78mm;
     }
@@ -33,22 +32,27 @@
     
     .domain1 {
       background-color: #BFBFBF;
+      padding: 1mm 2mm;
     }
     
     .domain2 {
       background-color: #8DD873;
+      padding: 1mm 2mm;
     }
     
     .domain3 {
       background-color: #D86DCB;
+      padding: 1mm 2mm;
     }
     
     .domain4 {
       background-color: #F1A983;
+      padding: 1mm 2mm;
     }
     
     .domain5 {
       background-color: #4C94D8;
+      padding: 1mm 2mm;
     }
 
     .aldine {
