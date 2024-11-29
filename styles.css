@@ -11,7 +11,7 @@
       --hearder: 2mm;
       --schema: 116mm;
       --schema1: calc(var(--schema) - 4mm);
-      --quenr: 6.5mm;
+      --quenr: 7mm;
       --nr: 18.5mm;
       --bare: 78mm;
     }
