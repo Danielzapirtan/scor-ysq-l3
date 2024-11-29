@@ -7,6 +7,7 @@
   --gap2: 5mm;
   --ans: 7.5mm;
   --hearder: 2mm;
+  --radius: 3mm;
   --schema: 120mm;
   --schema1: calc(var(--schema) - 4mm);
   --nr: 20mm;
@@ -22,7 +23,7 @@ body {
 
 .domain {
   width: var(--schema1);
-  border-radius: 3mm;
+  border-radius: var(--radius);
   font-size: 1.1rem;
   font-weight: bold;
 }
@@ -75,7 +76,7 @@ button {
   /* Text îndrăzneț */
   border: none;
   /* Fără bordură */
-  border-radius: 8px;
+  border-radius: var(--radius);
   /* Colțuri rotunjite */
   cursor: pointer;
   /* Cursor pointer */
@@ -140,13 +141,13 @@ button:active {
 
 .quenr {
   display: inline-block;
-  border-top-left-radius: 1mm;
-  border-bottom-left-radius: 1mm;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
 }
 
 .quest {
   display: inline-block;
-  border-top-right-radius: 1mm;
+  border-top-right-radius: var(--radius);
   border-bottom-right-radius: 1mm;
 }
 
@@ -210,7 +211,7 @@ button:active {
   text-align: center;
   margin-right: 0;
   border: var(--hearder) black;
-  border-radius: 2.75mm;
+  border-radius: var(--radius);
   font-size: 1.15rem;
 }
 
@@ -221,7 +222,7 @@ button:active {
   text-align: center;
   margin-right: 0;
   border: var(--hearder) black;
-  border-radius: 2.75mm;
+  border-radius: var(--radius);
   font-size: 1.15rem;
 }
 
@@ -231,7 +232,7 @@ button:active {
   text-align: center;
   margin-right: 0;
   border: var(--hearder) black;
-  border-radius: 2.75mm;
+  border-radius: var(--radius);
   font-size: 1.15rem;
 }
 
