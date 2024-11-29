@@ -1,15 +1,4 @@
 function main() {
-  /*if (navigator.userAgent.indexOf("Windows") !== -1) {
-  // Apply styles for Windows
-  document.body.classList.add("windows");
-} else if (navigator.userAgent.indexOf("Mac") !== -1) {
-  // Apply styles for macOS
-  document.body.classList.add("macos");
-} else if (navigator.userAgent.indexOf("Linux") !== -1) {
-  // Apply styles for Linux
-  document.body.classList.add("linux");
-}*/
-
   const domainNames = [
     "I. Separare și Respingere",
     "II. Autonomie și Performanță deficitare",
@@ -25,29 +14,6 @@ function main() {
     [12, 13, 14],
     [15, 16, 17, 18]
   ];
-
-  /*const scales = [
-    0.0565,
-    0.0565,
-    0.0605,
-    0.054,
-    0.0595,
-    0.0565,
-    0.056,
-    0.0545,
-    0.057,
-    0.056,
-    0.059,
-    0.057,
-    0.0565,
-    0.0565,
-    0.06,
-    0.055,
-    0.0565,
-    0.0585
-  ];
-  
-  const extrascale = 1.0;*/
 
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -507,6 +473,16 @@ function main() {
   });
 
   // Function to find the longest question in a schema
+  function findLongestTextWidth(arr) {
+    let width = 0;
+    arr.forEach((str) => {
+      const textMeasure = document.getElementById("text-measure");
+      textMeasure.innerText = str;
+      if (textMeasure.offsetWidth > width) width = textMeasure.offsetWidth;
+    });
+    return width;
+  }
+
   function findLongestQuestion(iy) {
     let width = 0;
     for (let ix = 0; ix < schemas[iy].length; ix++) {
@@ -522,15 +498,6 @@ function main() {
     return width;
   }
 
-  // Iterate through each schema and set the container size
-  /*  schemas.forEach((schema) => {
-    const longestLength = findLongestQuestion(schema);
-    // Assuming you have a container element with the class 'question-container'
-    const containers = document.querySelectorAll(".question-container");
-    containers.forEach((container) => {
-      container.style.maxWidth = longestLength + "px"; // Adjust as needed
-    });
-  });*/
   function displayMoreInfo(index) {
     const realIndex = parseInt(index + 1);
     alert(`Domeniul ${arabicToRoman(realIndex)} : Detaliere indisponibilă`);
@@ -621,6 +588,15 @@ function main() {
 `;
       list.appendChild(li);
     }
+    const arr = [];
+    for (let i = 0; i < 232; i++) {
+      const el = parseInt(i + 1) + '. ';
+      arr.push(el);
+    }
+    const quenrLength = findLongestTextWidth(arr) + 'px';
+    document.querySelectorAll(".quenr").forEach((enr) => {
+      enr.style.minWidth = quenrLength;
+    });
     loadSavedColors();
 
     // Add click event listeners to each question number
