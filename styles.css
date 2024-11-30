@@ -10,7 +10,7 @@
   --hearder: 2mm;
   --radius: 3mm;
   --schema: 120mm;
-  --mtd: 0.75mm;
+  --mtd: 1.25mm;
   --schema1: calc(var(--schema) - 4mm);
   --nr: 20mm;
   --bare: 80mm;
@@ -214,6 +214,7 @@ button:active {
   margin-right: 0;
   font-size: 11pt;
   display: flex;
+  margin-bottom: 0.5mm;
 }
 
 .th1 {
