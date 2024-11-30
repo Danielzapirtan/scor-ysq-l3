@@ -10,7 +10,7 @@
   --hearder: 2mm;
   --radius: 3mm;
   --schema: 120mm;
-  --mtd: 1.25mm;
+  --mtd: 0.75mm;
   --schema1: calc(var(--schema) - 4mm);
   --nr: 20mm;
   --bare: 80mm;
@@ -28,6 +28,7 @@ body {
   border-radius: var(--radius);
   font-size: 10.5pt;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 .domain1 {
