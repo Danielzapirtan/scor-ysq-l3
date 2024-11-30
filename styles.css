@@ -208,28 +208,29 @@ button:active {
 
 .header-record {
   width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
-  padding: 1mm 2mm;
   background-color: #fb5;
   text-align: center;
   margin-right: 0;
-  margin-bottom: var(--gspacing);
-  border: var(--hearder) black;
-  border-radius: var(--radius);
   font-size: 11pt;
   display: flex;
 }
 
 .th1 {
   width: var(--schema);
+  border: var(--hearder) black;
+  border-radius: var(--radius);
 }
 
  .th2 {
   width: var(--nr);
+  border: var(--hearder) black;
+  border-radius: var(--radius);
 }
  
-
 .th3 {
   width: var(--bare);
+  border: var(--hearder) black;
+  border-radius: var(--radius);
 }
 
 .li-click {
