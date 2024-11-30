@@ -194,7 +194,7 @@ button:active {
   cursor: pointer;
   height: 2mm;
   margin: 0;
-  padding: 1mm 2mm;
+  padding: 0;
 }
 
 .bar1 {
