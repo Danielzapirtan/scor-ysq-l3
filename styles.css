@@ -24,7 +24,7 @@ body {
 .domain {
   width: var(--schema1);
   border-radius: var(--radius);
-  font-size: 1.1rem;
+  font-size: 10.5pt;
   font-weight: bold;
 }
 
@@ -70,7 +70,7 @@ button {
   /* Text alb */
   padding: 2mm 4mm;
   /* Spațiere confortabilă */
-  font-size: 1em;
+  font-size: 10pt;
   /* Text lizibil */
   font-weight: bold;
   /* Text îndrăzneț */
@@ -212,7 +212,7 @@ button:active {
   margin-right: 0;
   border: var(--hearder) black;
   border-radius: var(--radius);
-  font-size: 1.15rem;
+  font-size: 11pt;
 }
 
 .th2 {
@@ -223,7 +223,7 @@ button:active {
   margin-right: 0;
   border: var(--hearder) black;
   border-radius: var(--radius);
-  font-size: 1.15rem;
+  font-size: 11pt;
 }
 
 .th3 {
@@ -233,7 +233,7 @@ button:active {
   margin-right: 0;
   border: var(--hearder) black;
   border-radius: var(--radius);
-  font-size: 1.15rem;
+  font-size: 11pt;
 }
 
 .li-click {
