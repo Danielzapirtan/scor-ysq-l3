@@ -1,6 +1,7 @@
 :root {
   --font-size: 10pt;
   --spacing: 2.5mm;
+  --gspacing 0.25mm;
   --margin: 5mm;
   --width: calc(100vw - 2 * var(--margin));
   --gap: 0.14mm;
@@ -26,6 +27,7 @@ body {
   border-radius: var(--radius);
   font-size: 10.5pt;
   font-weight: bold;
+  margin-top: var(--gspacing);
 }
 
 .domain1 {
@@ -68,7 +70,7 @@ button {
   /* Albastru plăcut */
   color: #000;
   /* Text alb */
-  padding: 2mm 4mm;
+  padding: 1mm 2mm;
   /* Spațiere confortabilă */
   font-size: 10pt;
   /* Text lizibil */
@@ -183,9 +185,9 @@ button:active {
 
 .bar {
   cursor: pointer;
-  height: 3.8mm;
+  height: 2mm;
   margin: 0;
-  padding: 0;
+  padding: 1mm 2mm;
 }
 
 .bar1 {
@@ -202,44 +204,35 @@ button:active {
 
 .header-record {
   width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
+  padding: 1mm 2mm;
+  background-color: #fb5;
+  text-align: center;
+  margin-right: 0;
+  margin-bottom: var(--gspacing);
+  border: var(--hearder) black;
+  border-radius: var(--radius);
+  font-size: 11pt;
   display: flex;
 }
 
 .th1 {
   width: var(--schema);
-  background-color: #fb5;
-  text-align: center;
-  margin-right: 0;
-  border: var(--hearder) black;
-  border-radius: var(--radius);
-  font-size: 11pt;
 }
 
-.th2 {
+ .th2 {
   width: var(--nr);
-  font-family: Arial, sans-serif;
-  background-color: #fb5;
-  text-align: center;
-  margin-right: 0;
-  border: var(--hearder) black;
-  border-radius: var(--radius);
-  font-size: 11pt;
 }
+ 
 
 .th3 {
   width: var(--bare);
-  background-color: #fb5;
-  text-align: center;
-  margin-right: 0;
-  border: var(--hearder) black;
-  border-radius: var(--radius);
-  font-size: 11pt;
 }
 
 .li-click {
   width: var(--schema);
   text-align: left;
   margin-right: 0;
+  margin-bottom: var(--gspacing);
 }
 
 .schema-click {
@@ -247,6 +240,7 @@ button:active {
   font-family: Arial, sans-serif;
   text-align: left;
   margin-right: 0;
+  margin-bottom: var(--gspacing);
 }
 
 ul {
