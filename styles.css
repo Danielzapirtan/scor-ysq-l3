@@ -10,6 +10,7 @@
   --hearder: 2mm;
   --radius: 3mm;
   --schema: 120mm;
+  --mtd: 0.75mm;
   --schema1: calc(var(--schema) - 4mm);
   --nr: 20mm;
   --bare: 80mm;
@@ -32,31 +33,31 @@ body {
 .domain1 {
   background-color: #BFBFBF;
   padding: 1mm 2mm;
-  margin-top: 2.25mm;
+  margin-top: var(--mtd)
 }
 
 .domain2 {
   background-color: #8DD873;
   padding: 1mm 2mm;
-  margin-top: 2.25mm;
+  margin-top: var(--mtd)
 }
 
 .domain3 {
   background-color: #D86DCB;
   padding: 1mm 2mm;
-  margin-top: 2.25mm;
+  margin-top: var(--mtd)
 }
 
 .domain4 {
   background-color: #F1A983;
   padding: 1mm 2mm;
-  margin-top: 2.25mm;
+  margin-top: var(--mtd)
 }
 
 .domain5 {
   background-color: #4C94D8;
   padding: 1mm 2mm;
-  margin-top: 2.25mm;
+  margin-top: var(--mtd)
 }
 
 .aldine {
