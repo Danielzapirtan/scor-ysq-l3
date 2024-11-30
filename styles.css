@@ -27,7 +27,7 @@ body {
   border-radius: var(--radius);
   font-size: 10.5pt;
   font-weight: bold;
-  margin-top: var(--gspacing);
+  margin-top: 2.25mm;
 }
 
 .domain1 {
