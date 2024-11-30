@@ -12,7 +12,7 @@
   --radius: 3mm;
   --schema: 120mm;
   --mtd: 0.5mm;
-  --schema1: calc(var(--schema) - 4mm);
+  --schema1: calc(var(--schema) - 8mm);
   --nr: 20mm;
   --bare: 80mm;
 }
