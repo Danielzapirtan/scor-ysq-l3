@@ -194,7 +194,7 @@ button:active {
   cursor: pointer;
   height: 2mm;
   margin: 0;
-  padding: 0;
+  padding: 0.8mm;
 }
 
 .bar1 {
@@ -246,7 +246,6 @@ button:active {
 
 .schema-click {
   width: var(--nr);
-  font-family: Arial, sans-serif;
   text-align: left;
   margin-right: 0;
   margin-bottom: var(--gspacing);
