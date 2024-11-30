@@ -27,32 +27,36 @@ body {
   border-radius: var(--radius);
   font-size: 10.5pt;
   font-weight: bold;
-  margin-top: 2.25mm;
 }
 
 .domain1 {
   background-color: #BFBFBF;
   padding: 1mm 2mm;
+  margin-top: 2.25mm;
 }
 
 .domain2 {
   background-color: #8DD873;
   padding: 1mm 2mm;
+  margin-top: 2.25mm;
 }
 
 .domain3 {
   background-color: #D86DCB;
   padding: 1mm 2mm;
+  margin-top: 2.25mm;
 }
 
 .domain4 {
   background-color: #F1A983;
   padding: 1mm 2mm;
+  margin-top: 2.25mm;
 }
 
 .domain5 {
   background-color: #4C94D8;
   padding: 1mm 2mm;
+  margin-top: 2.25mm;
 }
 
 .aldine {
