@@ -32,34 +32,29 @@ body {
   margin-bottom: 0;
 }
 
+.domain1, .domain2, .domain3, .domain4, .domain5 {
+  padding: var(--padding);
+  margin-top: var(--mtd);
+}
+
 .domain1 {
   background-color: #BFBFBF;
-  padding: var(--padding);
-  margin-top: var(--mtd)
 }
 
 .domain2 {
   background-color: #8DD873;
-  padding: var(--padding);
-  margin-top: var(--mtd)
 }
 
 .domain3 {
   background-color: #D86DCB;
-  padding: var(--padding);
-  margin-top: var(--mtd)
 }
 
 .domain4 {
   background-color: #F1A983;
-  padding: var(--padding);
-  margin-top: var(--mtd)
 }
 
 .domain5 {
   background-color: #4C94D8;
-  padding: var(--padding);
-  margin-top: var(--mtd)
 }
 
 .aldine {
@@ -194,7 +189,7 @@ button:active {
   cursor: pointer;
   height: 2mm;
   margin: 0;
-  padding: 0.8mm;
+  padding: 1.2mm;
 }
 
 .bar1 {
@@ -246,6 +241,7 @@ button:active {
 
 .schema-click {
   width: var(--nr);
+  font-family: Arial, sans-serif;
   text-align: left;
   margin-right: 0;
   margin-bottom: var(--gspacing);
