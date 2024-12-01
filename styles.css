@@ -1,7 +1,7 @@
 :root {
   --font-size: 10pt;
   --spacing: 2.5mm;
-  --gspacing: 0.05mm;
+  --gspacing: 0.5mm;
   --padding: 2mm 4mm;
   --margin: 5mm;
   --width: calc(100vw - 2 * var(--margin));
@@ -11,7 +11,7 @@
   --hearder: 0;
   --radius: 3mm;
   --schema: 120mm;
-  --schema-height: 5mm;
+  --schema-height: 6mm;
   --mtd: 0.5mm;
   --schema1: calc(var(--schema) - 8mm);
   --nr: 20mm;
