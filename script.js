@@ -562,8 +562,13 @@ function main() {
           iy1 = dx + 1;
         }
       }
-      li.innerHTML = `
-<div class="domain domain${iy1} clickable">${domain}</div><div class="container">
+      li.innerHTML = ``;
+      try {
+      if (domains[iy1 - 1][0] - 1 === iy) {
+        li.innerHTML += `<div class="domain domain${iy1} clickable">${domain}</div>`;
+      }
+      } catch { }
+      li.innerHTML += `<div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
     <button class="schema-click clickable">Nr:&nbsp;${
@@ -591,10 +596,10 @@ function main() {
     }
     const arr = [];
     for (let i = 0; i < 232; i++) {
-      const el = parseInt(i + 1) + '. ';
+      const el = parseInt(i + 1) + ". ";
       arr.push(el);
     }
-    const quenrLength = findLongestTextWidth(arr) + 'px';
+    const quenrLength = findLongestTextWidth(arr) + "px";
     document.querySelectorAll(".quenr").forEach((enr) => {
       enr.style.minWidth = quenrLength;
     });
