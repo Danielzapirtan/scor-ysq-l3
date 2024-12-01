@@ -11,6 +11,7 @@
   --hearder: 0;
   --radius: 3mm;
   --schema: 120mm;
+  --schema-height: 4mm;
   --mtd: 0.5mm;
   --schema1: calc(var(--schema) - 8mm);
   --nr: 20mm;
@@ -26,6 +27,7 @@ body {
 
 .domain {
   width: var(--schema1);
+  height: 5mm;
   border-radius: var(--radius);
   font-size: 10.5pt;
   font-weight: bold;
@@ -33,7 +35,7 @@ body {
 }
 
 .domain1, .domain2, .domain3, .domain4, .domain5 {
-  padding: var(--padding);
+  padding: 0 4mm;
   margin-top: var(--mtd);
 }
 
@@ -129,7 +131,8 @@ button:active {
   display: flex;
   flex-direction: column;
   width: 170mm;
-  /*gap: 10px;*/
+  height: 4mm;
+  gap: 0;
 }
 
 .qanda-container {
@@ -182,14 +185,15 @@ button:active {
 
 .bar-wrapper {
   display: flex;
+  height: 2mm;
   align-items: left;
 }
 
 .bar {
   cursor: pointer;
-  height: 2mm;
+  height: 1mm;
   margin: 0;
-  padding: 1.2mm;
+  padding: 0.6mm;
 }
 
 .bar1 {
@@ -234,6 +238,8 @@ button:active {
 
 .li-click {
   width: var(--schema);
+  height: var(--schema-height);
+  padding: 0 4mm;
   text-align: left;
   margin-right: 0;
   margin-bottom: var(--gspacing);
@@ -241,6 +247,8 @@ button:active {
 
 .schema-click {
   width: var(--nr);
+  height: var(--schema-height);
+  padding: 0 4mm;
   font-family: Arial, sans-serif;
   text-align: left;
   margin-right: 0;
