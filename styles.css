@@ -131,7 +131,7 @@ button:active {
   display: flex;
   flex-direction: column;
   width: 170mm;
-  height: 4mm;
+  height: 6mm;
   gap: 0;
 }
 
@@ -185,15 +185,15 @@ button:active {
 
 .bar-wrapper {
   display: flex;
-  height: 2mm;
+  height: 3mm;
   align-items: left;
 }
 
 .bar {
   cursor: pointer;
-  height: 1mm;
+  height: 1.5mm;
   margin: 0;
-  padding: 0.6mm;
+  padding: 0.75mm;
 }
 
 .bar1 {
