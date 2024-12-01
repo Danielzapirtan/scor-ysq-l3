@@ -516,9 +516,10 @@ function main() {
     list.innerHTML = `
 <div class="spacing"></div>
 <span class="aldine">Instrucțiuni pentru interpretarea rezultatelor:</span>
-<br>• Apăsați butonul cu "Titlul schemei cognitive" pentru a accesa o descriere rezumativă a acesteia.
-<br>• Apăsați butonul "Nr: " pentru a vizualiza lista itemilor din chestionar asociați fiecărei scheme cognitive, împreună cu calificativele lor.    
-<br>• Apăsați butonul “Barele de scor” pentru a consulta semnificația scorului obținut la schema curentă.
+<br>Butonul "Titlul domeniului cognitiv": Apăsați pentru a obține detalii despre semnificația domeniului cognitiv respectiv.
+<br>Butonul "Titlul schemei cognitive": Apăsați pentru a accesa o descriere rezumativă a schemei cognitive.
+<br>Butonul "Nr:": Apăsați pentru a vizualiza lista itemilor din chestionar asociați fiecărei scheme cognitive, împreună cu calificativele acestora.
+<br>Butonul "Barele de scor": Apăsați pentru a consulta semnificația scorului obținut pentru schema curentă.
 <div class="spacing"></div>
 <div class="spacing"></div>
 <div class="header-record">
