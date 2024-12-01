@@ -1,7 +1,7 @@
 :root {
   --font-size: 10pt;
   --spacing: 2.5mm;
-  --gspacing: 0.25mm;
+  --gspacing: 0.05mm;
   --padding: 2mm 4mm;
   --margin: 5mm;
   --width: calc(100vw - 2 * var(--margin));
@@ -11,7 +11,7 @@
   --hearder: 0;
   --radius: 3mm;
   --schema: 120mm;
-  --schema-height: 4mm;
+  --schema-height: 5mm;
   --mtd: 0.5mm;
   --schema1: calc(var(--schema) - 8mm);
   --nr: 20mm;
@@ -27,7 +27,7 @@ body {
 
 .domain {
   width: var(--schema1);
-  height: 5mm;
+  height: 6mm;
   border-radius: var(--radius);
   font-size: 10.5pt;
   font-weight: bold;
@@ -212,7 +212,7 @@ button:active {
   display: flex;
   flex-direction: row;
   width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
-  height: 6mm;
+  height: 7mm;
   margin-right: 0;
 }
 
