@@ -214,13 +214,14 @@ button:active {
   display: flex;
   flex-direction: row;
   width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
-  height: 7mm;
-  line-height: 7mm;
   margin-right: 0;
 }
 
 .th1, .th2, .th3 {
   background-color: #fb5;
+  height: 7mm;
+  line-height: 7mm;
+  vertical-align: middle;
   text-align: center;
   border-radius: var(--radius);
   font-size: 11pt;
