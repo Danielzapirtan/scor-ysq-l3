@@ -38,7 +38,7 @@ body {
 .domain1, .domain2, .domain3, .domain4, .domain5 {
   padding: 0 4mm;
   margin-top: var(--mtd);
-  text-align: center;
+  text-align: left;
 }
 
 .domain1 {
