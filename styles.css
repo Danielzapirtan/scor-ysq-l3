@@ -28,6 +28,7 @@ body {
 .domain {
   width: var(--schema1);
   height: 6mm;
+  line-height: 6mm;
   border-radius: var(--radius);
   font-size: 10.5pt;
   font-weight: bold;
@@ -37,6 +38,7 @@ body {
 .domain1, .domain2, .domain3, .domain4, .domain5 {
   padding: 0 4mm;
   margin-top: var(--mtd);
+  text-align: center;
 }
 
 .domain1 {
@@ -213,6 +215,7 @@ button:active {
   flex-direction: row;
   width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
   height: 7mm;
+  line-height: 7mm;
   margin-right: 0;
 }
 
