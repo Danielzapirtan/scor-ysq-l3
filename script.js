@@ -461,7 +461,39 @@ function main() {
     displayScores(firstname, lastname, scores);
   }
 
+  const storageKey = "csvData";
+  //localStorage.removeItem("csvData");
+  let data = localStorage.getItem(storageKey);
+  if (data) {
+    data = JSON.parse(data);
+    document.getElementById("clinician").classList.add("hidden");
+    processResponses(data);
+  } else {
+    document.getElementById("clinician").classList.remove("hidden");
+  }
+  
   document.getElementById("processCSV").addEventListener("click", () => {
+    const storageKey = "csvData";
+    let data = localStorage.getItem(storageKey);
+
+    if (data) {
+      data = JSON.parse(data);
+      processResponses(data);
+    } else {
+      const input = document.getElementById("csvFileInput").files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const csv = e.target.result;
+        data = csv.split(",");
+        localStorage.setItem(storageKey, JSON.stringify(data));
+        processResponses(data);
+      };
+
+      reader.readAsText(input);
+    }
+  });
+  /*document.getElementById("processCSV").addEventListener("click", () => {
     const input = document.getElementById("csvFileInput").files[0];
     const reader = new FileReader();
     reader.onload = function (e) {
@@ -470,7 +502,7 @@ function main() {
       processResponses(data);
     };
     reader.readAsText(input);
-  });
+  });*/
 
   // Function to find the longest question in a schema
   function findLongestTextWidth(arr) {
@@ -564,10 +596,10 @@ function main() {
       }
       li.innerHTML = ``;
       try {
-      if (domains[iy1 - 1][0] - 1 === iy) {
-        li.innerHTML += `<div class="domain domain${iy1} clickable">${domain}</div>`;
-      }
-      } catch { }
+        if (domains[iy1 - 1][0] - 1 === iy) {
+          li.innerHTML += `<div class="domain domain${iy1} clickable">${domain}</div>`;
+        }
+      } catch {}
       li.innerHTML += `<div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
