@@ -647,10 +647,9 @@ function main() {
     ];
     // Select all elements with 'domain' class
     const domainElements = document.querySelectorAll(".domain");
-
     domainElements.forEach((element) => {
       // Add click event listener to each domain div
-      element.addEventListener("click", function () {
+      element.addEventListener("contextmenu", function () {
         // If not already in editing mode
         if (!this.getAttribute("contenteditable")) {
           // Make div editable
@@ -675,13 +674,13 @@ function main() {
         }
       });
     });
-    /*domainClasses.forEach((domainItem, index) => {
+    domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
       const doms = Array.from(document.querySelectorAll(selector));
       doms[0].addEventListener("click", function (event) {
         displayMoreInfo(index);
       });
-    });*/
+    });
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
