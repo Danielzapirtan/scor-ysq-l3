@@ -35,30 +35,38 @@ body {
   margin-bottom: 0;
 }
 
-.domain1, .domain2, .domain3, .domain4, .domain5 {
+.domain1,
+.domain2,
+.domain3,
+.domain4,
+.domain5 {
   padding: 0 4mm;
   margin-top: var(--mtd);
   text-align: left;
 }
 
+.editing {
+  border: 2px solid blue;
+  background-color: #f0f0f0;
+}
 .domain1 {
-  background-color: #BFBFBF;
+  background-color: #bfbfbf;
 }
 
 .domain2 {
-  background-color: #8DD873;
+  background-color: #8dd873;
 }
 
 .domain3 {
-  background-color: #D86DCB;
+  background-color: #d86dcb;
 }
 
 .domain4 {
-  background-color: #F1A983;
+  background-color: #f1a983;
 }
 
 .domain5 {
-  background-color: #4C94D8;
+  background-color: #4c94d8;
 }
 
 .aldine {
@@ -213,11 +221,15 @@ button:active {
 .header-record {
   display: flex;
   flex-direction: row;
-  width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
+  width: calc(
+    var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare)
+  );
   margin-right: 0;
 }
 
-.th1, .th2, .th3 {
+.th1,
+.th2,
+.th3 {
   background-color: #fb5;
   height: 7mm;
   line-height: 7mm;
@@ -235,7 +247,7 @@ button:active {
 .th2 {
   width: var(--nr);
 }
- 
+
 .th3 {
   width: var(--bare);
 }
