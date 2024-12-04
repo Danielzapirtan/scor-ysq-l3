@@ -14,8 +14,12 @@ function main() {
     [12, 13, 14],
     [15, 16, 17, 18]
   ];
-
-  let domainDetails = ["", "", "", "", ""];
+  
+  let domainDetails;
+  const dditem = localStorage.getItem("dditem");
+  if (dditem)
+    domainDetails = JSON.parse(dditem);
+  else domainDetails = ["", "", "", "", ""];
 
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -659,6 +663,7 @@ function main() {
       // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
         domainDetails[index] = editDetails.value;
+        localStorage.setItem("dditem", JSON.stringify(domainDetails));
         editDetails.classList.add("hidden");
         // Remove editable attribute
       });
