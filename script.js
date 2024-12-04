@@ -16,9 +16,9 @@ function main() {
   ];
   
   let domainDetails;
-  const dditem = localStorage.getItem("dditem");
+  const dditem = JSON.parse(localStorage.getItem("dditem"));
   if (dditem)
-    domainDetails = JSON.parse(dditem);
+    domainDetails = dditem;
   else domainDetails = ["", "", "", "", ""];
 
   const questions = [
@@ -658,10 +658,12 @@ function main() {
       // Add click event listener to each domain div
       element.addEventListener("contextmenu", function () {
         editDetails.classList.remove("hidden");
+        editDetails.dataset.index = index;
       });
 
       // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
+        const index = this.dataset.index;
         domainDetails[index] = editDetails.value;
         localStorage.setItem("dditem", JSON.stringify(domainDetails));
         editDetails.classList.add("hidden");
