@@ -15,6 +15,8 @@ function main() {
     [15, 16, 17, 18]
   ];
 
+  let domainDetails = ["", "", "", "", ""];
+
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
     "2. Simt că oamenii vor profita de mine. ",
@@ -471,7 +473,7 @@ function main() {
   } else {
     document.getElementById("clinician").classList.remove("hidden");
   }
-  
+
   document.getElementById("processCSV").addEventListener("click", () => {
     const storageKey = "csvData";
     let data = localStorage.getItem(storageKey);
@@ -532,7 +534,7 @@ function main() {
 
   function displayMoreInfo(index) {
     const realIndex = parseInt(index + 1);
-    alert(`Domeniul ${arabicToRoman(realIndex)} : Detaliere indisponibilă`);
+    alert(`Domeniul ${arabicToRoman(realIndex)} : ${domainDetails[index]}`);
   }
 
   function displayDetails(index, score) {
@@ -645,7 +647,30 @@ function main() {
       "domain4",
       "domain5"
     ];
+    // Select all elements with 'domain' class
+    const domainElements = document.querySelectorAll(".domain");
+    const editDetails = document.getElementById("editDetails");
+    domainElements.forEach((element, index) => {
+      // Add click event listener to each domain div
+      element.addEventListener("contextmenu", function () {
+        editDetails.classList.remove("hidden");
+      });
 
+      // Add blur event to save changes
+      editDetails.addEventListener("blur", function () {
+        domainDetails[index] = editDetails.value;
+        editDetails.classList.add("hidden");
+        // Remove editable attribute
+      });
+
+      // Prevent line breaks
+      editDetails.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          this.blur();
+        }
+      });
+    });
     domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
       const doms = Array.from(document.querySelectorAll(selector));
@@ -703,4 +728,4 @@ function main() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', main);
+document.addEventListener("DOMContentLoaded", main);
