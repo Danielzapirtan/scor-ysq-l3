@@ -471,7 +471,7 @@ function main() {
   } else {
     document.getElementById("clinician").classList.remove("hidden");
   }
-  
+
   document.getElementById("processCSV").addEventListener("click", () => {
     const storageKey = "csvData";
     let data = localStorage.getItem(storageKey);
@@ -645,14 +645,43 @@ function main() {
       "domain4",
       "domain5"
     ];
+    // Select all elements with 'domain' class
+    const domainElements = document.querySelectorAll(".domain");
 
-    domainClasses.forEach((domainItem, index) => {
+    domainElements.forEach((element) => {
+      // Add click event listener to each domain div
+      element.addEventListener("click", function () {
+        // If not already in editing mode
+        if (!this.getAttribute("contenteditable")) {
+          // Make div editable
+          this.setAttribute("contenteditable", "true");
+          this.classList.add("editing");
+          this.focus();
+        }
+      });
+
+      // Add blur event to save changes
+      element.addEventListener("blur", function () {
+        // Remove editable attribute
+        this.removeAttribute("contenteditable");
+        this.classList.remove("editing");
+      });
+
+      // Prevent line breaks
+      element.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          this.blur();
+        }
+      });
+    });
+    /*domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
       const doms = Array.from(document.querySelectorAll(selector));
       doms[0].addEventListener("click", function (event) {
         displayMoreInfo(index);
       });
-    });
+    });*/
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
@@ -703,4 +732,4 @@ function main() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', main);
+document.addEventListener("DOMContentLoaded", main);
