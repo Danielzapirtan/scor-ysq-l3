@@ -47,8 +47,7 @@ body {
 
 .editing {
   border: 2px solid blue;
-  width: 315mm;
-  margin-left: var(--margin);
+  width: var(--width);
   background-color: #f0f0f0;
   resize: vertical; /* Allow vertical resizing only */
   min-height: 50px; /* Set a minimum height */
@@ -288,4 +287,8 @@ ul li:not(:last-child) {
 
 .hidden {
   display: none;
+}
+
+.show {
+  display: block;
 }
