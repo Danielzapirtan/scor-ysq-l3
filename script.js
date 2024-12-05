@@ -656,6 +656,7 @@ function main() {
       // Add click event listener to each domain div
       element.addEventListener("contextmenu", function () {
         editDetails.classList.remove("hidden");
+        editDetails.value = schemaDetails[index];
         editDetails.dataset.index = index;
       });
 
@@ -682,6 +683,7 @@ function main() {
       // Add click event listener to each domain div
       element.addEventListener("contextmenu", function () {
         editDetails.classList.remove("hidden");
+        editDetails.value = domainDetails[index];
         editDetails.dataset.index = index;
       });
 
