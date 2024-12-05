@@ -706,12 +706,12 @@ function main() {
       });
 
       // Prevent line breaks
-      editDetails.addEventListener("keydown", function (e) {
+      /*editDetails.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
           e.preventDefault();
           this.blur();
         }
-      });
+      });*/
     });
     // Select all elements with 'domain' class
     const domainElements = document.querySelectorAll(".domain");
@@ -733,12 +733,12 @@ function main() {
       });
 
       // Prevent line breaks
-      editDetails.addEventListener("keydown", function (e) {
+      /*editDetails.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
           e.preventDefault();
           this.blur();
         }
-      });
+      });*/
     });
     domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
