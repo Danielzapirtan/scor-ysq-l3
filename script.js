@@ -7,6 +7,8 @@ function main() {
     "V. Hipervigilență și Inhibiție"
   ];
 
+  const resetAll = false;
+
   const domains = [
     [1, 2, 3, 4, 5],
     [6, 7, 8, 9],
@@ -14,11 +16,10 @@ function main() {
     [12, 13, 14],
     [15, 16, 17, 18]
   ];
-  
+
   let domainDetails;
   const dditem = JSON.parse(localStorage.getItem("dditem"));
-  if (dditem)
-    domainDetails = dditem;
+  if (dditem && !resetAll) domainDetails = dditem.slice(0,5);
   else domainDetails = ["", "", "", "", ""];
 
   const questions = [
@@ -284,7 +285,7 @@ function main() {
     "17. Standarde Nerealiste/Exigență/Hipercriticism US",
     "18. Pedepsire/Spirit justițiar PU"
   ];
-  
+
   const schemas = [
     [
       1,
@@ -363,9 +364,35 @@ function main() {
 
   let schemaDetails;
   const schitem = JSON.parse(localStorage.getItem("schitem"));
-  if (schitem)
-    schemaDetails = schitem;
-  else schemaDetails = Array(schemas.length).fill("");
+  if (schitem && !resetAll) schemaDetails = schitem;
+  else schemaDetails = Array(schemaNames.length).fill("");
+  let bakResponses;
+  
+  async function downloadJsonString(jsonString) {
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "dataToDownload.json"; // You can change this to any desired filename
+
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up (optional)
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+  function downloadData() {
+    // Example usage:
+    const dataToDownload = {
+      bakResponses: bakResponses,
+      schemaDetails: schemaDetails,
+      domainDetails: domainDetails
+    };
+    const myJsonString = JSON.stringify(dataToDownload);
+    downloadJsonString(myJsonString);
+  }
 
 
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
@@ -426,7 +453,6 @@ function main() {
   loadSavedColors();
   // Eveniment de click pentru salvarea culorii
   // Obține elementele HTML
-  let bakResponses;
 
   let iy;
   let iyz = null;
@@ -475,19 +501,20 @@ function main() {
     displayScores(firstname, lastname, scores);
   }
 
-  const storageKey = "csvData";
   //localStorage.removeItem("csvData");
+  const storageKey = "csvData";
   let data = localStorage.getItem(storageKey);
-  if (data) {
+  if (data && !resetAll) {
     data = JSON.parse(data);
+    bakResponses = data;
     document.getElementById("clinician").classList.add("hidden");
     processResponses(data);
+    //downloadData();
   } else {
     document.getElementById("clinician").classList.remove("hidden");
   }
 
   document.getElementById("processCSV").addEventListener("click", () => {
-    const storageKey = "csvData";
     let data = localStorage.getItem(storageKey);
 
     if (data) {
@@ -657,12 +684,12 @@ function main() {
       element.addEventListener("contextmenu", function () {
         editDetails.classList.remove("hidden");
         editDetails.value = schemaDetails[index];
-        editDetails.dataset.index = index;
+        this.dataset.index = index;
       });
 
       // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
-        const index = this.dataset.index;
+        const index = element.dataset.index;
         schemaDetails[index] = editDetails.value;
         localStorage.setItem("schitem", JSON.stringify(schemaDetails));
         editDetails.classList.add("hidden");
@@ -684,12 +711,12 @@ function main() {
       element.addEventListener("contextmenu", function () {
         editDetails.classList.remove("hidden");
         editDetails.value = domainDetails[index];
-        editDetails.dataset.index = index;
+        this.dataset.index = index;
       });
 
       // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
-        const index = this.dataset.index;
+        const index = element.dataset.index;
         domainDetails[index] = editDetails.value;
         localStorage.setItem("dditem", JSON.stringify(domainDetails));
         editDetails.classList.add("hidden");
