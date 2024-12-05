@@ -24,14 +24,13 @@ function main() {
     [12, 13, 14],
     [15, 16, 17, 18]
   ];
-	
-	
+
   let domainDetails;
   const dditem = JSON.parse(localStorage.getItem("dditem"));
   if (dditem && !resetAll) domainDetails = dditem;
   else {
-	  domainDetails = getData().domainDetails;
-	}  
+    domainDetails = getData().domainDetails;
+  }
 
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -378,9 +377,9 @@ function main() {
   if (schitem && !resetAll) schemaDetails = schitem;
   else {
     schemaDetails = getData().schemaDetails;
-	}
+  }
   let bakResponses;
-  
+
   async function downloadJsonString(jsonString) {
     const blob = new Blob([jsonString], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -406,7 +405,6 @@ function main() {
     const myJsonString = JSON.stringify(dataToDownload);
     downloadJsonString(myJsonString);
   }
-
 
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
   function arabicToRoman(num) {
@@ -522,8 +520,7 @@ function main() {
     bakResponses = data;
     document.getElementById("clinician").classList.add("hidden");
     processResponses(data);
-    if (hasQueryParam("test"))
-    downloadData();
+    if (hasQueryParam("test")) downloadData();
   } else {
     document.getElementById("clinician").classList.remove("hidden");
   }
