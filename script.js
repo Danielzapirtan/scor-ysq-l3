@@ -284,6 +284,7 @@ function main() {
     "17. Standarde Nerealiste/Exigență/Hipercriticism US",
     "18. Pedepsire/Spirit justițiar PU"
   ];
+  
   const schemas = [
     [
       1,
@@ -359,6 +360,13 @@ function main() {
     [17, 35, 53, 71, 89, 107, 125, 143, 161, 176, 189, 198, 207, 216, 224, 228],
     [18, 36, 54, 72, 90, 108, 126, 144, 162, 177, 190, 199, 208, 217]
   ];
+
+  let schemaDetails;
+  const schitem = JSON.parse(localStorage.getItem("schitem"));
+  if (schitem)
+    schemaDetails = schitem;
+  else schemaDetails = Array(schemas.length).fill("");
+
 
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
   function arabicToRoman(num) {
@@ -499,16 +507,6 @@ function main() {
       reader.readAsText(input);
     }
   });
-  /*document.getElementById("processCSV").addEventListener("click", () => {
-    const input = document.getElementById("csvFileInput").files[0];
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const csv = e.target.result;
-      const data = csv.split(",");
-      processResponses(data);
-    };
-    reader.readAsText(input);
-  });*/
 
   // Function to find the longest question in a schema
   function findLongestTextWidth(arr) {
@@ -542,7 +540,7 @@ function main() {
   }
 
   function displayDetails(index, score) {
-    alert(`Schema: ${index + 1} Scor: ${score}: Detaliere indisponibilă`);
+    alert(`Schema: ${index + 1} Scor: ${score}: ${schemaDetails[index]}`);
   }
 
   function displayInterpretation(index, score) {
@@ -652,8 +650,34 @@ function main() {
       "domain5"
     ];
     // Select all elements with 'domain' class
-    const domainElements = document.querySelectorAll(".domain");
+    const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
+    schemaElements.forEach((element, index) => {
+      // Add click event listener to each domain div
+      element.addEventListener("contextmenu", function () {
+        editDetails.classList.remove("hidden");
+        editDetails.dataset.index = index;
+      });
+
+      // Add blur event to save changes
+      editDetails.addEventListener("blur", function () {
+        const index = this.dataset.index;
+        schemaDetails[index] = editDetails.value;
+        localStorage.setItem("schitem", JSON.stringify(schemaDetails));
+        editDetails.classList.add("hidden");
+        // Remove editable attribute
+      });
+
+      // Prevent line breaks
+      editDetails.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          this.blur();
+        }
+      });
+    });
+    // Select all elements with 'domain' class
+    const domainElements = document.querySelectorAll(".domain");
     domainElements.forEach((element, index) => {
       // Add click event listener to each domain div
       element.addEventListener("contextmenu", function () {
