@@ -24,11 +24,14 @@ function main() {
     [12, 13, 14],
     [15, 16, 17, 18]
   ];
-
+	
+	
   let domainDetails;
   const dditem = JSON.parse(localStorage.getItem("dditem"));
   if (dditem && !resetAll) domainDetails = dditem;
-  else domainDetails = ["", "", "", "", ""];
+  else {
+	  domainDetails = getData().domainDetails;
+	}  
 
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -373,7 +376,9 @@ function main() {
   let schemaDetails;
   const schitem = JSON.parse(localStorage.getItem("schitem"));
   if (schitem && !resetAll) schemaDetails = schitem;
-  else schemaDetails = Array(schemaNames.length).fill("");
+  else {
+    schemaDetails = getData().schemaDetails;
+	}
   let bakResponses;
   
   async function downloadJsonString(jsonString) {
