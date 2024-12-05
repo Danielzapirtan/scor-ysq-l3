@@ -47,8 +47,11 @@ body {
 
 .editing {
   border: 2px solid blue;
+  width: var(--width);
+  height: 150mm;
   background-color: #f0f0f0;
 }
+
 .domain1 {
   background-color: #bfbfbf;
 }
