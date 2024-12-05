@@ -693,15 +693,15 @@ function main() {
       element.addEventListener("contextmenu", function () {
         editDetails.classList.remove("hidden");
         editDetails.value = schemaDetails[index];
-        this.dataset.index = index;
+        editDetails.dataset.schindex = index;
       });
 
       // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
-        const index = element.dataset.index;
-        schemaDetails[index] = editDetails.value;
+        const index = this.dataset.schindex;
+        schemaDetails[index] = this.value;
         localStorage.setItem("schitem", JSON.stringify(schemaDetails));
-        editDetails.classList.add("hidden");
+        this.classList.add("hidden");
         // Remove editable attribute
       });
 
@@ -720,15 +720,15 @@ function main() {
       element.addEventListener("contextmenu", function () {
         editDetails.classList.remove("hidden");
         editDetails.value = domainDetails[index];
-        this.dataset.index = index;
+        editDetails.dataset.domindex = index;
       });
 
       // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
-        const index = element.dataset.index;
-        domainDetails[index] = editDetails.value;
+        const index = this.dataset.domindex;
+        domainDetails[index] = this.value;
         localStorage.setItem("dditem", JSON.stringify(domainDetails));
-        editDetails.classList.add("hidden");
+        this.classList.add("hidden");
         // Remove editable attribute
       });
 
