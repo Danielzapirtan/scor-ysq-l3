@@ -568,7 +568,7 @@ function main() {
     return width;
   }
 
-  function displayMoreInfo(index) {
+  /*function displayMoreInfo(index) {
     const realIndex = parseInt(index + 1);
     alert(`Domeniul ${arabicToRoman(realIndex)} : ${domainDetails[index]}`);
   }
@@ -579,7 +579,7 @@ function main() {
 
   function displayInterpretation(index, score) {
     alert(`Schema: ${index + 1} Scor: ${score}: Interpretare indisponibilă`);
-  }
+  }*/
   function displayScores(firstname, lastname, scores) {
     document.getElementById("clinician").classList.add("hidden");
     const list = document.getElementById("schemaScores");
@@ -683,12 +683,7 @@ function main() {
       "domain4",
       "domain5"
     ];
-    const textarea = document.getElementById("editDetails");
 
-    textarea.addEventListener("input", () => {
-      textarea.style.height = "auto";
-      textarea.style.height = textarea.scrollHeight + "px";
-    });
     // Select all elements with 'domain' class
     const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
@@ -698,30 +693,24 @@ function main() {
       // Add click event listener to each domain div
       element.addEventListener("click", function () {
         pageDetails.classList.remove("hidden");
+        pageDetails.classList.add("show");
         pageMain.classList.add("hidden");
-        editDetails.classList.remove("hidden");
+        pageMain.classList.remove("show");
         editDetails.value = schemaDetails[index];
         editDetails.dataset.schindex = index;
       });
 
-      // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
         const index = this.dataset.schindex;
         schemaDetails[index] = this.value;
         localStorage.setItem("schitem", JSON.stringify(schemaDetails));
-        this.classList.add("hidden");
         pageDetails.classList.add("hidden");
+        pageDetails.classList.remove("show");
         pageMain.classList.remove("hidden");
+        pageMain.classList.add("show");
         // Remove editable attribute
       });
 
-      // Prevent line breaks
-      /*editDetails.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          this.blur();
-        }
-      });*/
     });
     // Select all elements with 'domain' class
     const domainElements = document.querySelectorAll(".domain");
@@ -729,30 +718,24 @@ function main() {
       // Add click event listener to each domain div
       element.addEventListener("click", function () {
         pageDetails.classList.remove("hidden");
+        pageDetails.classList.add("show");
         pageMain.classList.add("hidden");
-        editDetails.classList.remove("hidden");
+        pageMain.classList.remove("show");
         editDetails.value = domainDetails[index];
         editDetails.dataset.domindex = index;
       });
 
-      // Add blur event to save changes
       editDetails.addEventListener("blur", function () {
         const index = this.dataset.domindex;
         domainDetails[index] = this.value;
         localStorage.setItem("dditem", JSON.stringify(domainDetails));
-        this.classList.add("hidden");
         pageDetails.classList.add("hidden");
+        pageDetails.classList.remove("show");
         pageMain.classList.remove("hidden");
+        pageMain.classList.add("show");
         // Remove editable attribute
       });
 
-      // Prevent line breaks
-      /*editDetails.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          this.blur();
-        }
-      });*/
     });
     /*domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
