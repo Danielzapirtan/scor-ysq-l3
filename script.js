@@ -687,6 +687,10 @@ function main() {
     // Select all elements with 'domain' class
     const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
+        editDetails.addEventListener("input", () => {
+          editDetails.style.height = "auto";
+          editDetails.style.height = editDetails.scrollHeight + "px";
+        });
     const pageMain = document.getElementById("pageMain");
     const pageDetails = document.getElementById("pageDetails");
     schemaElements.forEach((element, index) => {
@@ -710,7 +714,6 @@ function main() {
         pageMain.classList.add("show");
         // Remove editable attribute
       });
-
     });
     // Select all elements with 'domain' class
     const domainElements = document.querySelectorAll(".domain");
@@ -735,7 +738,6 @@ function main() {
         pageMain.classList.add("show");
         // Remove editable attribute
       });
-
     });
     /*domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
