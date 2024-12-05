@@ -27,7 +27,7 @@ function main() {
 
   let domainDetails;
   const dditem = JSON.parse(localStorage.getItem("dditem"));
-  if (dditem && !resetAll) domainDetails = dditem.slice(0,5);
+  if (dditem && !resetAll) domainDetails = dditem;
   else domainDetails = ["", "", "", "", ""];
 
   const questions = [
@@ -396,7 +396,7 @@ function main() {
     const dataToDownload = {
       bakResponses: bakResponses,
       schemaDetails: schemaDetails,
-      domainDetails: domainDetails.slice(0, 5)
+      domainDetails: domainDetails
     };
     const myJsonString = JSON.stringify(dataToDownload);
     downloadJsonString(myJsonString);
