@@ -7,6 +7,14 @@ function main() {
     "V. Hipervigilență și Inhibiție"
   ];
 
+  function hasQueryParam(paramName) {
+    // Get the current URL's search parameters
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Check if the parameter exists
+    return urlParams.has(paramName);
+  }
+
   const resetAll = false;
 
   const domains = [
@@ -388,7 +396,7 @@ function main() {
     const dataToDownload = {
       bakResponses: bakResponses,
       schemaDetails: schemaDetails,
-      domainDetails: domainDetails
+      domainDetails: domainDetails.slice(0, 5)
     };
     const myJsonString = JSON.stringify(dataToDownload);
     downloadJsonString(myJsonString);
@@ -509,7 +517,8 @@ function main() {
     bakResponses = data;
     document.getElementById("clinician").classList.add("hidden");
     processResponses(data);
-    //downloadData();
+    if (hasQueryParam("test"))
+    downloadData();
   } else {
     document.getElementById("clinician").classList.remove("hidden");
   }
