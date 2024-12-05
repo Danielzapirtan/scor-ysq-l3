@@ -375,7 +375,7 @@ function main() {
   if (schitem && !resetAll) schemaDetails = schitem;
   else schemaDetails = Array(schemaNames.length).fill("");
   let bakResponses;
-  
+
   async function downloadJsonString(jsonString) {
     const blob = new Blob([jsonString], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -401,7 +401,6 @@ function main() {
     const myJsonString = JSON.stringify(dataToDownload);
     downloadJsonString(myJsonString);
   }
-
 
   // Încarcă și aplică culorile salvate pentru fiecare element la încărcarea paginii
   function arabicToRoman(num) {
@@ -517,8 +516,7 @@ function main() {
     bakResponses = data;
     document.getElementById("clinician").classList.add("hidden");
     processResponses(data);
-    if (hasQueryParam("test"))
-    downloadData();
+    if (hasQueryParam("test")) downloadData();
   } else {
     document.getElementById("clinician").classList.remove("hidden");
   }
@@ -685,12 +683,22 @@ function main() {
       "domain4",
       "domain5"
     ];
+    const textarea = document.getElementById("editDetails");
+
+    textarea.addEventListener("input", () => {
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    });
     // Select all elements with 'domain' class
     const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
+    const pageMain = document.getElementById("pageMain");
+    const pageDetails = document.getElementById("pageDetails");
     schemaElements.forEach((element, index) => {
       // Add click event listener to each domain div
-      element.addEventListener("contextmenu", function () {
+      element.addEventListener("click", function () {
+        pageDetails.classList.remove("hidden");
+        pageMain.classList.add("hidden");
         editDetails.classList.remove("hidden");
         editDetails.value = schemaDetails[index];
         editDetails.dataset.schindex = index;
@@ -702,6 +710,8 @@ function main() {
         schemaDetails[index] = this.value;
         localStorage.setItem("schitem", JSON.stringify(schemaDetails));
         this.classList.add("hidden");
+        pageDetails.classList.add("hidden");
+        pageMain.classList.remove("hidden");
         // Remove editable attribute
       });
 
@@ -717,7 +727,9 @@ function main() {
     const domainElements = document.querySelectorAll(".domain");
     domainElements.forEach((element, index) => {
       // Add click event listener to each domain div
-      element.addEventListener("contextmenu", function () {
+      element.addEventListener("click", function () {
+        pageDetails.classList.remove("hidden");
+        pageMain.classList.add("hidden");
         editDetails.classList.remove("hidden");
         editDetails.value = domainDetails[index];
         editDetails.dataset.domindex = index;
@@ -729,6 +741,8 @@ function main() {
         domainDetails[index] = this.value;
         localStorage.setItem("dditem", JSON.stringify(domainDetails));
         this.classList.add("hidden");
+        pageDetails.classList.add("hidden");
+        pageMain.classList.remove("hidden");
         // Remove editable attribute
       });
 
@@ -740,13 +754,13 @@ function main() {
         }
       });*/
     });
-    domainClasses.forEach((domainItem, index) => {
+    /*domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
       const doms = Array.from(document.querySelectorAll(selector));
       doms[0].addEventListener("click", function (event) {
         displayMoreInfo(index);
       });
-    });
+    });*/
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
@@ -755,7 +769,7 @@ function main() {
         displayScores(firstname, lastname, scores);
       });
     });
-    const qs2 = Array.from(document.querySelectorAll("li .li-click"));
+    /*const qs2 = Array.from(document.querySelectorAll("li .li-click"));
     qs2.forEach((q, index) => {
       q.addEventListener("click", function (event) {
         // Toggle `iyz` based on the clicked question
@@ -765,7 +779,7 @@ function main() {
           element.classList.remove("qanda-selected1");
         });
       });
-    });
+    });*/
     const qs3 = Array.from(document.querySelectorAll(".bar"));
     qs3.forEach((q, index) => {
       q.addEventListener("click", function (event) {
