@@ -588,7 +588,7 @@ function main() {
 <span class="aldine">Instrucțiuni pentru interpretarea rezultatelor:</span>
 <br>Butonul "Titlul domeniului cognitiv": Apăsați pentru a obține detalii despre semnificația domeniului cognitiv respectiv.
 <br>Butonul "Titlul schemei cognitive": Apăsați pentru a accesa o descriere rezumativă a schemei cognitive.
-<br>Butonul "Nr:": Apăsați pentru a vizualiza lista itemilor din chestionar asociați fiecărei scheme cognitive, împreună cu calificativele acestora.
+<br>Butonul "Nr/Nr": Apăsați pentru a vedea lista itemilor asociați fiecărei scheme cognitive și calificativele acordate acestora. Primul număr indică itemii cotați cu 5 sau 6, iar al doilea reprezintă totalul itemilor.
 <br>Butonul "Barele de scor": Apăsați pentru a consulta semnificația scorului obținut pentru schema curentă.
 <div class="spacing"></div>
 <div class="spacing"></div>
