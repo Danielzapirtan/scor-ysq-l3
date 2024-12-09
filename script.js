@@ -508,7 +508,7 @@ function main() {
     displayScores(firstname, lastname, scores);
   }
 
-  //localStorage.removeItem("csvData");
+  localStorage.removeItem("csvData");
   const storageKey = "csvData";
   let data = localStorage.getItem(storageKey);
   if (data && !resetAll) {
@@ -638,10 +638,17 @@ function main() {
           li.innerHTML += `<div class="domain domain${iy1} clickable">${domain}</div>`;
         }
       } catch {}
+      let grav = 0;
+      for (let ix = 0; ix < schemas[iy].length; ix++) {
+        const index = schemas[iy][ix];
+        if (bakResponses[index] >= 5)
+          grav++;
+      }
       li.innerHTML += `<div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
-    <button class="schema-click clickable">Nr:&nbsp;${
+    <button class="schema-click clickable">${grav}/
+    ${
       schemas[iy].length
     }</button>
   </div>
