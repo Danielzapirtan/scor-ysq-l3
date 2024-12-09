@@ -647,8 +647,7 @@ function main() {
       li.innerHTML += `<div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
-    <button class="schema-click clickable">${grav}/
-    ${
+    <button class="schema-click clickable">${grav}/${
       schemas[iy].length
     }</button>
   </div>
