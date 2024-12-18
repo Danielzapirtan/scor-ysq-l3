@@ -51,7 +51,6 @@ body {
   background-color: #f0f0f0;
   resize: vertical; /* Allow vertical resizing only */
   min-height: 50px; /* Set a minimum height */
-  max-height: 200px; /* Set a maximum height (optional) */
 }
 
 .domain1 {
