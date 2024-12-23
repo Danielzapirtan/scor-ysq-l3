@@ -641,15 +641,14 @@ function main() {
       let grav = 0;
       for (let ix = 0; ix < schemas[iy].length; ix++) {
         const index = schemas[iy][ix];
-        if (bakResponses[index] >= 5)
-          grav++;
+        if (bakResponses[index] >= 5) grav++;
       }
       li.innerHTML += `<div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
     <button class="schema-click clickable">${grav}/${
-      schemas[iy].length
-    }</button>
+        schemas[iy].length
+      }</button>
   </div>
   <div class="bar-container">
     <div class="bar-wrapper">
@@ -693,62 +692,86 @@ function main() {
     // Select all elements with 'domain' class
     const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
-        editDetails.addEventListener("input", () => {
-          editDetails.style.height = "auto";
-          editDetails.style.height = editDetails.scrollHeight + "px";
-        });
+    editDetails.addEventListener("input", () => {
+      editDetails.style.height = "auto";
+      editDetails.style.height = editDetails.scrollHeight + "px";
+    });
+    // Get DOM elements
     const pageMain = document.getElementById("pageMain");
     const pageDetails = document.getElementById("pageDetails");
     const backwardElement = document.getElementById("backward");
+    const antetDetails = document.getElementById("antetDetails");
+  //  const editDetails = document.getElementById("editDetails");
+
+    // Helper functions
+    function showPage(page) {
+      page.classList.remove("hidden");
+      page.classList.add("show");
+    }
+
+    function hidePage(page) {
+      page.classList.add("hidden");
+      page.classList.remove("show");
+    }
+
+    function highlightElement(element) {
+      element.style.backgroundColor = "#e0e0e0";
+      element.style.transition = "background-color 0.3s";
+
+      setTimeout(() => {
+        element.style.backgroundColor = "";
+      }, 3000);
+
+      centerElement(element);
+    }
+
+    // Schema elements handling
     schemaElements.forEach((element, index) => {
-      // Add click event listener to each domain div
-      element.addEventListener("click", function () {
-        document.getElementById("antetDetails").innerHTML = schemaNames[index];
-        pageDetails.classList.remove("hidden");
-        pageDetails.classList.add("show");
-        pageMain.classList.add("hidden");
-        pageMain.classList.remove("show");
+      element.addEventListener("click", () => {
+        antetDetails.innerHTML = schemaNames[index];
+        showPage(pageDetails);
+        hidePage(pageMain);
         editDetails.value = schemaDetails[index];
         editDetails.dataset.schindex = index;
       });
-
-      backwardElement.addEventListener("click", function () {
-        const index = this.dataset.schindex;
-        schemaDetails[index] = this.value;
-        localStorage.setItem("schitem", JSON.stringify(schemaDetails));
-        pageDetails.classList.add("hidden");
-        pageDetails.classList.remove("show");
-        document.getElementById("antetDetails").innerHTML = initHeader;
-        pageMain.classList.remove("hidden");
-        pageMain.classList.add("show");
-        // Remove editable attribute
-      });
     });
-    // Select all elements with 'domain' class
+
+    // Domain elements handling
     const domainElements = document.querySelectorAll(".domain");
     domainElements.forEach((element, index) => {
-      // Add click event listener to each domain div
-      element.addEventListener("click", function () {
-        document.getElementById("antetDetails").innerHTML = domainNames[index];
-        pageDetails.classList.remove("hidden");
-        pageDetails.classList.add("show");
-        pageMain.classList.add("hidden");
-        pageMain.classList.remove("show");
+      element.addEventListener("click", () => {
+        antetDetails.innerHTML = domainNames[index];
+        showPage(pageDetails);
+        hidePage(pageMain);
         editDetails.value = domainDetails[index];
         editDetails.dataset.domindex = index;
       });
+    });
 
-      backwardElement.addEventListener("click", function () {
-        const index = this.dataset.domindex;
-        domainDetails[index] = this.value;
+    // Backward button handling
+    backwardElement.addEventListener("click", function () {
+      const schIndex = editDetails.dataset.schindex;
+      const domIndex = editDetails.dataset.domindex;
+
+      if (schIndex !== undefined) {
+        // Handle schema backward navigation
+        schemaDetails[schIndex] = editDetails.value;
+        localStorage.setItem("schitem", JSON.stringify(schemaDetails));
+        hidePage(pageDetails);
+        showPage(pageMain);
+        highlightElement(schemaElements[schIndex]);
+      } else if (domIndex !== undefined) {
+        // Handle domain backward navigation
+        domainDetails[domIndex] = editDetails.value;
         localStorage.setItem("dditem", JSON.stringify(domainDetails));
-        pageDetails.classList.add("hidden");
-        pageDetails.classList.remove("show");
-        document.getElementById("antetDetails").innerHTML = initHeader;
-        pageMain.classList.remove("hidden");
-        pageMain.classList.add("show");
-        // Remove editable attribute
-      });
+        hidePage(pageDetails);
+        showPage(pageMain);
+        highlightElement(domainElements[domIndex]);
+      }
+
+      // Clear the indices after handling
+      delete editDetails.dataset.schindex;
+      delete editDetails.dataset.domindex;
     });
     /*domainClasses.forEach((domainItem, index) => {
       const selector = "." + domainItem; // Concatenate the dot and the domainItem
