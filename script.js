@@ -702,6 +702,7 @@ function main() {
     schemaElements.forEach((element, index) => {
       // Add click event listener to each domain div
       element.addEventListener("click", function () {
+        document.getElementById("antet").innerHTML = schemaNames[index];
         pageDetails.classList.remove("hidden");
         pageDetails.classList.add("show");
         pageMain.classList.add("hidden");
@@ -726,6 +727,7 @@ function main() {
     domainElements.forEach((element, index) => {
       // Add click event listener to each domain div
       element.addEventListener("click", function () {
+        document.getElementById("antet").innerHTML = domainNames[index];
         pageDetails.classList.remove("hidden");
         pageDetails.classList.add("show");
         pageMain.classList.add("hidden");
