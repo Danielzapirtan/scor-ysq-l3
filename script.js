@@ -689,7 +689,7 @@ function main() {
       "domain4",
       "domain5"
     ];
-
+    const initHeader = `Rezultate Chestionar YSQ-L3`;
     // Select all elements with 'domain' class
     const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
@@ -699,9 +699,11 @@ function main() {
         });
     const pageMain = document.getElementById("pageMain");
     const pageDetails = document.getElementById("pageDetails");
+    const backwardElement = document.getElementById("backward");
     schemaElements.forEach((element, index) => {
       // Add click event listener to each domain div
       element.addEventListener("click", function () {
+        document.getElementById("antetDetails").innerHTML = schemaNames[index];
         pageDetails.classList.remove("hidden");
         pageDetails.classList.add("show");
         pageMain.classList.add("hidden");
@@ -710,12 +712,13 @@ function main() {
         editDetails.dataset.schindex = index;
       });
 
-      editDetails.addEventListener("blur", function () {
+      backwardElement.addEventListener("click", function () {
         const index = this.dataset.schindex;
         schemaDetails[index] = this.value;
         localStorage.setItem("schitem", JSON.stringify(schemaDetails));
         pageDetails.classList.add("hidden");
         pageDetails.classList.remove("show");
+        document.getElementById("antetDetails").innerHTML = initHeader;
         pageMain.classList.remove("hidden");
         pageMain.classList.add("show");
         // Remove editable attribute
@@ -726,6 +729,7 @@ function main() {
     domainElements.forEach((element, index) => {
       // Add click event listener to each domain div
       element.addEventListener("click", function () {
+        document.getElementById("antetDetails").innerHTML = domainNames[index];
         pageDetails.classList.remove("hidden");
         pageDetails.classList.add("show");
         pageMain.classList.add("hidden");
@@ -734,12 +738,13 @@ function main() {
         editDetails.dataset.domindex = index;
       });
 
-      editDetails.addEventListener("blur", function () {
+      backwardElement.addEventListener("click", function () {
         const index = this.dataset.domindex;
         domainDetails[index] = this.value;
         localStorage.setItem("dditem", JSON.stringify(domainDetails));
         pageDetails.classList.add("hidden");
         pageDetails.classList.remove("show");
+        document.getElementById("antetDetails").innerHTML = initHeader;
         pageMain.classList.remove("hidden");
         pageMain.classList.add("show");
         // Remove editable attribute
