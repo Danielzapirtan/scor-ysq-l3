@@ -715,6 +715,7 @@ function main() {
     }
 
     function highlightElement(element) {
+      centerElement(element);
       element.style.backgroundColor = "#e0e0e0";
       element.style.transition = "background-color 0.3s";
 
@@ -722,7 +723,6 @@ function main() {
         element.style.backgroundColor = "";
       }, 3000);
 
-      centerElement(element);
     }
 
     // Schema elements handling
