@@ -23,7 +23,7 @@ function main() {
     [10, 11],
     [12, 13, 14],
     [15, 16, 17, 18]
-  ];
+  ];6
 
   let domainDetails;
   const dditem = JSON.parse(localStorage.getItem("dditem"));
@@ -808,18 +808,23 @@ function main() {
         displayInterpretation(index, scores[index]);
       });
     });
-    function centerElement(element) {
-      const elementRect = element.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const elementHeight = elementRect.height;
-      const targetY =
-        elementRect.top + window.scrollY - (viewportHeight - elementHeight) / 2;
+function centerElement(element) {
+  if (!element || !document.body.contains(element)) {
+    console.error("Element is not in the document.");
+    return;
+  }
+  
+  const elementRect = element.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const elementHeight = elementRect.height;
+  const targetY =
+    elementRect.top + window.scrollY - (viewportHeight - elementHeight) / 2;
 
-      window.scrollTo({
-        top: targetY,
-        behavior: "smooth"
-      });
-    }
+  window.scrollTo({
+    top: targetY,
+    behavior: "smooth"
+  });
+}
 
     const scrollY = list.offsetTop;
     if (iyz === null) window.scrollTo({ top: scrollY, behaviour: "smooth" });
