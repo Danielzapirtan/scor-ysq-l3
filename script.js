@@ -23,7 +23,7 @@ function main() {
 		[10, 11],
 		[12, 13, 14],
 		[15, 16, 17, 18]
-	];6
+	];
 
 	let domainDetails;
 	const dditem = JSON.parse(localStorage.getItem("dditem"));
@@ -669,6 +669,7 @@ function main() {
 `;
 			list.appendChild(li);
 		}
+    window.scrollTo(0, 0);
 		const arr = [];
 		for (let i = 0; i < 232; i++) {
 			const el = parseInt(i + 1) + ". ";
@@ -826,12 +827,13 @@ function main() {
 			});
 		}
 
-		const scrollY = list.offsetTop;
+		/*const scrollY = list.offsetTop;
 		if (iyz === null) window.scrollTo({ top: scrollY, behaviour: "smooth" });
 		const qandaSelected = document.querySelectorAll(".qanda-selected1");
 		qandaSelected.forEach((q, index) => {
 			centerElement(q);
-		});
+		});*/
+    window.scrollTo(0, 0);
 	}
 }
 
