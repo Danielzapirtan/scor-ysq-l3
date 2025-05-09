@@ -854,8 +854,6 @@ function centerElement(element) {
   });
 }
 
-    const scrollY = list.offsetTop;
-    if (iyz === null) window.scrollTo({ top: scrollY, behaviour: "smooth" });
     const qandaSelected = document.querySelectorAll(".qanda-selected1");
     centerElement(qandaSelected[0]);
     //window.scrollTo(0, 0);
