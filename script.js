@@ -852,9 +852,7 @@ function main() {
     const scrollY = list.offsetTop;
     if (iyz === null) window.scrollTo({ top: scrollY, behaviour: "smooth" });
     const qandaSelected = document.querySelectorAll(".qanda-selected1");
-    qandaSelected.forEach((q, index) => {
-      centerElement(q);
-    });
+    centerElement(qandaSelected[0]);
     //window.scrollTo(0, 0);
   }
 }
