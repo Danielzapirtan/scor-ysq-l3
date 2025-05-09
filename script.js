@@ -641,7 +641,7 @@ function main() {
 			let grav = 0;
 			for (let ix = 0; ix < schemas[iy].length; ix++) {
 				const index = schemas[iy][ix];
-				if (bakResponses[index] >= 5) grav++;
+				if (bakResponses[index] >= 4) grav++;
 			}
 			li.innerHTML += `<div class="container">
   <div class="buttons">
