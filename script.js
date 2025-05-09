@@ -848,13 +848,13 @@ function main() {
       });
     }
 
-    /*const scrollY = list.offsetTop;
+    const scrollY = list.offsetTop;
     if (iyz === null) window.scrollTo({ top: scrollY, behaviour: "smooth" });
     const qandaSelected = document.querySelectorAll(".qanda-selected1");
     qandaSelected.forEach((q, index) => {
       centerElement(q);
-    });*/
-    window.scrollTo(0, 0);
+    });
+    //window.scrollTo(0, 0);
   }
 }
 
