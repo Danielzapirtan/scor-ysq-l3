@@ -603,7 +603,7 @@ function main() {
   function displayScores(firstname, lastname, scores) {
     document.getElementById("clinician").classList.add("hidden");
     const list = document.getElementById("schemaScores");
-    list.innerHTML = `
+    document.getElementById("scores").innerHTML = `
 <div class="spacing"></div>
 <span class="aldine">Instrucțiuni pentru interpretarea rezultatelor:</span>
 <br>Butonul "Titlul domeniului cognitiv": Apăsați pentru a obține detalii despre semnificația domeniului cognitiv respectiv.
