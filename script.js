@@ -294,6 +294,9 @@ function main() {
 		"18. Pedepsire/Spirit justițiar PU"
 	];
 
+const thresholdWidths = [
+];
+
 	const schemas = [
 		[
 			1,
@@ -520,7 +523,6 @@ function main() {
 	} else {
 		document.getElementById("clinician").classList.remove("hidden");
 	}
-
 	document.getElementById("processCSV").addEventListener("click", () => {
 		let data = localStorage.getItem(storageKey);
 
@@ -623,7 +625,8 @@ function main() {
 				}
 			}
 			const li = document.createElement("li");
-			const thresholdWidth = schemas[iy].length * 3.5;
+			// const thresholdWidth = schemas[iy].length * 3.5;
+   const thresholdWidth = thresholdWidths[iy];
 			let domain = ``;
 			let iy1;
 			for (let dx = 0; dx < domains.length; dx++) {
