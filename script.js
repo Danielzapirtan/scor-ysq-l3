@@ -295,6 +295,24 @@ function main() {
   ];
 
   const thresholdWidths = [
+54,
+37,
+13,
+16,
+21,
+24,
+17,
+20,
+14,
+31,
+36,
+16,
+54,
+28,
+21,
+18,
+42,
+36,
   ];
 
   const schemas = [
@@ -625,8 +643,8 @@ function main() {
         }
       }
       const li = document.createElement("li");
-      const thresholdWidth = schemas[iy].length * 3.5;
-      //const thresholdWidth = thresholdWidths[iy];
+      //const thresholdWidth = schemas[iy].length * 3.5;
+      const thresholdWidth = thresholdWidths[iy];
       let domain = ``;
       let iy1;
       for (let dx = 0; dx < domains.length; dx++) {
@@ -664,7 +682,7 @@ function main() {
       <div class="bar bar2 clickable" style="width: ${
         thresholdWidth * 4
       }px"></div>
-      <div class="number">${Math.floor(schemas[iy].length * 3.5)}</div>
+      <div class="number">${Math.floor(thresholdWidths[iy])}</div>
     </div>
   </div>
 </div>
