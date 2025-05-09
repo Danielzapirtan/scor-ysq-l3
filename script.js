@@ -831,23 +831,28 @@ function main() {
             displayInterpretation(index, scores[index]);
           });
         });
-    function centerElement(element) {
-      if (!element || !document.body.contains(element)) {
-        console.error("Element is not in the document.");
-        return;
-      }
+function centerElement(element) {
+  if (!element || !document.body.contains(element)) {
+    console.error("Element is not in the document.");
+    return;
+  }
 
-      const elementRect = element.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const elementHeight = elementRect.height;
-      const targetY =
-        elementRect.top + window.scrollY - (viewportHeight - elementHeight) / 2;
+  const elementRect = element.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const elementHeight = elementRect.height;
 
-      window.scrollTo({
-        top: targetY,
-        behavior: "smooth"
-      });
-    }
+  if (elementHeight === 0) {
+    console.error("Element is not visible.");
+    return;
+  }
+
+  const targetY = window.pageYOffset + elementRect.top - (viewportHeight - elementHeight) / 2;
+
+  window.scrollTo({
+    top: targetY,
+    behavior: "smooth"
+  });
+}
 
     const scrollY = list.offsetTop;
     if (iyz === null) window.scrollTo({ top: scrollY, behaviour: "smooth" });
