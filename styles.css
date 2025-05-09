@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --font-size: 10pt;
   --spacing: 2.5mm;
@@ -23,8 +29,6 @@ body {
   font-size: var(--font-size);
   margin-left: var(--margin);
   margin-right: var(--margin);
-  margin-bottom: 0;
-  padding: 0;
 }
 
 .domain {
