@@ -619,6 +619,7 @@ function main() {
     <span class="gap2"></span>
     <span class="blk aldine th3">Analiza scorului</span>
 </div>`;
+    list = ``;
     for (iy = 0; iy < schemas.length; iy++) {
       let qanda = ``;
       let qanda1 = ``; // Reset qanda1 for each schema
