@@ -295,24 +295,24 @@ function main() {
   ];
 
   const thresholdWidths = [
-54,
-37,
-13,
-16,
-21,
-24,
-17,
-20,
-14,
-31,
-36,
-16,
-54,
-28,
-21,
-18,
-42,
-36,
+    54,
+    37,
+    13,
+    16,
+    21,
+    24,
+    17,
+    20,
+    14,
+    31,
+    36,
+    16,
+    54,
+    28,
+    21,
+    18,
+    42,
+    36
   ];
 
   const schemas = [
@@ -669,8 +669,8 @@ function main() {
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
     <button class="schema-click clickable">${grav}/${
-      schemas[iy].length
-    }</button>
+        schemas[iy].length
+      }</button>
   </div>
   <div class="bar-container">
     <div class="bar-wrapper">
@@ -745,7 +745,6 @@ function main() {
       setTimeout(() => {
         element.style.backgroundColor = "";
       }, 3000);
-
     }
 
     // Schema elements handling
@@ -822,41 +821,40 @@ function main() {
   });
       });
     });*/
-        const qs3 = Array.from(document.querySelectorAll(".bar"));
-        qs3.forEach((q, index) => {
-          q.addEventListener("click", function (event) {
-            // Toggle `iyz` based on the clicked question
-            iyz = index !== iyz ? index : null;
-            index = Math.floor(index / 2);
-            displayInterpretation(index, scores[index]);
-          });
-        });
-function centerElement(element) {
-  if (!element || !document.body.contains(element)) {
-    console.error("Element is not in the document.");
-    return;
-  }
+    const qs3 = Array.from(document.querySelectorAll(".bar"));
+    qs3.forEach((q, index) => {
+      q.addEventListener("click", function (event) {
+        // Toggle `iyz` based on the clicked question
+        iyz = index !== iyz ? index : null;
+        index = Math.floor(index / 2);
+        displayInterpretation(index, scores[index]);
+      });
+    });
+    function centerElement(element) {
+      if (!element || !document.body.contains(element)) {
+        console.error("Element is not in the document.");
+        return;
+      }
 
-  const elementRect = element.getBoundingClientRect();
-  const viewportHeight = window.innerHeight;
-  const elementHeight = elementRect.height;
+      const elementRect = element.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const elementHeight = elementRect.height;
 
-  if (elementHeight === 0) {
-    console.error("Element is not visible.");
-    return;
-  }
+      if (elementHeight === 0) {
+        console.error("Element is not visible.");
+        return;
+      }
 
-  const targetY = window.pageYOffset + elementRect.top - (viewportHeight - elementHeight) / 2;
+      const targetY =
+        window.pageYOffset +
+        elementRect.top -
+        (viewportHeight - elementHeight) / 2;
 
-  window.scrollTo({
-    top: targetY,
-    behavior: "smooth"
-  });
-}
-
-    const qandaSelected = document.querySelectorAll(".qanda-selected1");
-    centerElement(qandaSelected[0]);
-    //window.scrollTo(0, 0);
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth"
+      });
+    }
   }
 }
 
