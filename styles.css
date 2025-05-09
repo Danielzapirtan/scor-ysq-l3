@@ -278,7 +278,7 @@ button:active {
   margin-bottom: var(--gspacing);
 }
 
-#schema-scores {
+#schemaScores {
   font-size: var(--font-size);
   list-style-type: none;
   margin: 0;
