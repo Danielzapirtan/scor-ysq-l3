@@ -690,7 +690,7 @@ function main() {
 `;
       list.appendChild(li);
     }
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
     const arr = [];
     for (let i = 0; i < 232; i++) {
       const el = parseInt(i + 1) + ". ";
