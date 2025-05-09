@@ -51,6 +51,8 @@ body {
   background-color: #f0f0f0;
   resize: vertical; /* Allow vertical resizing only */
   min-height: 50px; /* Set a minimum height */
+  margin: 0;
+  padding: 0;
 }
 
 .domain1 {
@@ -177,7 +179,6 @@ button:active {
   font-size: var(--font-size);
   visibility: hidden;
   position: absolute;
-  white-space: nowrap;
 }
 
 .gap {
