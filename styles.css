@@ -18,6 +18,11 @@
   --bare: 80mm;
 }
 
+#pageMain, #pageDetails {
+  margin-bottom: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   font-size: var(--font-size);
