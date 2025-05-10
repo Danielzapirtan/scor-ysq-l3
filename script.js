@@ -815,14 +815,6 @@ function main() {
         }
       });
     });
-    /*    const qs = Array.from(document.querySelectorAll("li .schema-click"));
-    qs.forEach((q, index) => {
-      q.addEventListener("click", function (event) {
-        // Toggle `iyz` based on the clicked question
-        iyz = index !== iyz ? index : null;
-        displayScores(firstname, lastname, scores);
-      });
-    });*/
     const qs3 = Array.from(document.querySelectorAll(".bar"));
     qs3.forEach((q, index) => {
       q.addEventListener("click", function (event) {
