@@ -812,6 +812,28 @@ function main() {
       });
     });
   }
+function equalizeScrollDistances(el1, el2) {
+    // Get the positions of both elements
+    const rect1 = el1.getBoundingClientRect();
+    const rect2 = el2.getBoundingClientRect();
+    
+    // Get viewport height
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate desired scroll position
+    const el1TopDistance = rect1.top;
+    const el2BottomDistance = viewportHeight - rect2.bottom;
+    
+    // The difference between current distances
+    const distanceDifference = el1TopDistance - el2BottomDistance;
+    
+    // Adjust scroll position
+    window.scrollBy({
+        top: distanceDifference / 2,
+        behavior: 'smooth'
+    });
+}
+
 }
 
 document.addEventListener("DOMContentLoaded", main);
