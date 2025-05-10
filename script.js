@@ -691,7 +691,6 @@ function main() {
 `;
       list.appendChild(li);
     }
-    //window.scrollTo(0, 0);
     const arr = [];
     for (let i = 0; i < 232; i++) {
       const el = parseInt(i + 1) + ". ";
@@ -795,13 +794,6 @@ function main() {
       delete editDetails.dataset.schindex;
       delete editDetails.dataset.domindex;
     });
-    /*domainClasses.forEach((domainItem, index) => {
-      const selector = "." + domainItem; // Concatenate the dot and the domainItem
-      const doms = Array.from(document.querySelectorAll(selector));
-      doms[0].addEventListener("click", function (event) {
-  displayMoreInfo(index);
-      });
-    });*/
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
@@ -810,17 +802,6 @@ function main() {
         displayScores(firstname, lastname, scores);
       });
     });
-    /*const qs2 = Array.from(document.querySelectorAll("li .li-click"));
-    qs2.forEach((q, index) => {
-      q.addEventListener("click", function (event) {
-        // Toggle `iyz` based on the clicked question
-  iyz = index !== iyz ? index : null;
-  displayDetails(index, scores[index]);
-  document.querySelectorAll(".qanda-container").forEach((element) => {
-    element.classList.remove("qanda-selected1");
-  });
-      });
-    });*/
     const qs3 = Array.from(document.querySelectorAll(".bar"));
     qs3.forEach((q, index) => {
       q.addEventListener("click", function (event) {
@@ -830,31 +811,6 @@ function main() {
         displayInterpretation(index, scores[index]);
       });
     });
-    function centerElement(element) {
-      if (!element || !document.body.contains(element)) {
-        console.error("Element is not in the document.");
-        return;
-      }
-
-      const elementRect = element.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const elementHeight = elementRect.height;
-
-      if (elementHeight === 0) {
-        console.error("Element is not visible.");
-        return;
-      }
-
-      const targetY =
-        window.pageYOffset +
-        elementRect.top -
-        (viewportHeight - elementHeight) / 2;
-
-      window.scrollTo({
-        top: targetY,
-        behavior: "smooth"
-      });
-    }
   }
 }
 
