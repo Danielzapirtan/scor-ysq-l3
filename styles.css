@@ -179,6 +179,12 @@ button:active {
   border-bottom-right-radius: 1mm;
 }
 
+.quanda-selected1 {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 #text-measure {
   font-family: Arial, sans-serif;
   font-size: var(--font-size);
