@@ -1,10 +1,10 @@
 function main() {
-function centerElement(element) {
-  element.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center'
-  });
-}
+  function centerElement(element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
   const domainNames = [
     "I. Separare și Respingere",
     "II. Autonomie și Performanță deficitare",
@@ -800,24 +800,22 @@ function centerElement(element) {
       delete editDetails.dataset.schindex;
       delete editDetails.dataset.domindex;
     });
-const qs = Array.from(document.querySelectorAll("li .schema-click"));
-qs.forEach((q, index) => {
-  q.addEventListener("click", function(event) {
-    // Toggle `iyz` based on the clicked question
-    iyz = index !== iyz ? index : null;
-    displayScores(firstname, lastname, scores);
-    
-    // Scroll to the first question of this schema if expanded
-    if (iyz === index) {
-      const firstQuestionIndex = schemas[index][0] - 1;
-      const questionElement = document.querySelector(`[name="response${firstQuestionIndex}"]`);
-      if (questionElement) {
-        centerElement(questionElement.parentElement);
-      }
-    }
-  });
-});
-/*    const qs = Array.from(document.querySelectorAll("li .schema-click"));
+    const qs = Array.from(document.querySelectorAll("li .schema-click"));
+    qs.forEach((q, index) => {
+      q.addEventListener("click", function (event) {
+        // Toggle `iyz` based on the clicked question
+        iyz = index !== iyz ? index : null;
+        displayScores(firstname, lastname, scores);
+
+        if (iyz === index) {
+          const cenel = document.querySelector('.qanda-selected1');
+          if (cenel) {
+            centerElement(cenel);
+          }
+        }
+      });
+    });
+    /*    const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
         // Toggle `iyz` based on the clicked question
