@@ -696,7 +696,7 @@ const element = document.querySelector('.qanda-selected1');
 if (element) {
     const elementRect = element.getBoundingClientRect();
     const absoluteElementTop = elementRect.top + window.scrollY;
-    const middlePosition = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
+    const middlePosition = absoluteElementTop - (window.innerHeight / 2);
 
     window.scrollTo({
         top: middlePosition,
