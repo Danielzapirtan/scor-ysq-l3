@@ -691,30 +691,6 @@ function main() {
 `;
       list.appendChild(li);
     }
-	  function centerSelectedElement() {
-  const selectedElement = document.querySelector('.qanda-selected1');
-
-  if (selectedElement) {
-    // Get the dimensions of the element and the viewport
-    const elementWidth = selectedElement.offsetWidth;
-    const elementHeight = selectedElement.offsetHeight;
-    const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-
-    // Calculate the horizontal and vertical center positions
-    const horizontalCenter = (viewportWidth - elementWidth) / 2;
-    const verticalCenter = (viewportHeight - elementHeight) / 2;
-
-    // Apply styles to center the element
-    selectedElement.style.position = 'fixed'; // Use fixed positioning to center relative to the viewport
-    selectedElement.style.left = `${horizontalCenter}px`;
-    selectedElement.style.top = `${verticalCenter}px`;
-    selectedElement.style.transform = 'translate(0, 0)'; // Ensure precise centering, especially with potential existing transforms
-  }
-}
-
-// Call the function to center the element (if it exists)
-centerSelectedElement();
     const arr = [];
     for (let i = 0; i < 232; i++) {
       const el = parseInt(i + 1) + ". ";
