@@ -802,15 +802,16 @@ function main() {
     });
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
-      q.addEventListener("click", function (event) {
+    q.addEventListener("click", function (event) {
         // Toggle `iyz` based on the clicked question
         const collapsep = index === iyz;
         iyz = index !== iyz ? index : null;
         displayScores(firstname, lastname, scores);
         if (collapsep) {
-          const cenelq = q.parent;
-          if (cenelq)
-            centerElement(cenelq);
+          window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behaviour: 'smooth'
+          });
         }
         if (iyz === index) {
           const cenel = document.querySelector('.qanda-selected1');
