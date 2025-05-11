@@ -808,9 +808,9 @@ function main() {
         iyz = index !== iyz ? index : null;
         displayScores(firstname, lastname, scores);
         if (collapsep) {
-          const cenel = q.parent;
-          if (cenel)
-            centerElement(cenel);
+          const cenelq = q.parent;
+          if (cenelq)
+            centerElement(cenelq);
         }
         if (iyz === index) {
           const cenel = document.querySelector('.qanda-selected1');
