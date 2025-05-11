@@ -808,10 +808,8 @@ function main() {
         iyz = index !== iyz ? index : null;
         displayScores(firstname, lastname, scores);
         if (collapsep) {
-          document.querySelector('ul').scrollIntoView({
-            behaviour: "smooth",
-            block: "center"
-          });
+          const ul = document.querySelector('ul');
+          centerElement(ul);
         }
         if (iyz === index) {
           const cenel = document.querySelector('.qanda-selected1');
