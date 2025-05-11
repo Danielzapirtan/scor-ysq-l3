@@ -808,7 +808,7 @@ function main() {
         iyz = index !== iyz ? index : null;
         displayScores(firstname, lastname, scores);
         if (collapsep) {
-          const cenel = document.querySelectorAll('#li')[index];
+          const cenel = q.parent;
           if (cenel)
             centerElement(cenel);
         }
