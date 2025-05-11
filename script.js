@@ -804,9 +804,14 @@ function main() {
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
         // Toggle `iyz` based on the clicked question
+        const collapsep = index === iyz;
         iyz = index !== iyz ? index : null;
         displayScores(firstname, lastname, scores);
-
+        if (collapsep) {
+          const cenel = document.querySelectorAll('#li')[index];
+          if (cenel)
+            centerElement(cenel);
+        }
         if (iyz === index) {
           const cenel = document.querySelector('.qanda-selected1');
           if (cenel) {
