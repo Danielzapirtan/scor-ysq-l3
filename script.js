@@ -808,7 +808,7 @@ function main() {
         iyz = index !== iyz ? index : null;
         displayScores(firstname, lastname, scores);
         if (collapsep) {
-          document.documentElement.scrollIntoView({
+          document.documentElement.scrollHeight.scrollIntoView({
             behaviour: "smooth",
             block: "bottom"
           });
